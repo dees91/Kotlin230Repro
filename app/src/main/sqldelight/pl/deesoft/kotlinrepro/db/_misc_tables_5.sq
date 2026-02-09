@@ -1,0 +1,72 @@
+import pl.deesoft.kotlinrepro.db.Type1;
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+CREATE TABLE table53(
+    id TEXT NOT NULL PRIMARY KEY,
+    col69 TEXT NOT NULL
+);
+
+CREATE INDEX idx101 ON table53(id);
+
+CREATE TABLE table49(
+    id TEXT NOT NULL PRIMARY KEY,
+    col127 TEXT DEFAULT NULL,
+    col140 TEXT NOT NULL,
+    col128 TEXT NOT NULL,
+    col71 TEXT DEFAULT NULL,
+    col141 TEXT DEFAULT NULL,
+    col129 TEXT DEFAULT NULL,
+    col72 TEXT DEFAULT NULL,
+    col147 TEXT NOT NULL,
+    col113 TEXT NOT NULL,
+    col29 INTEGER AS Boolean NOT NULL,
+    col2 TEXT AS Type1 DEFAULT NULL,
+    col132 TEXT AS Type1 DEFAULT NULL,
+    col70 TEXT AS ZonedDateTime DEFAULT NULL,
+    col104 INTEGER DEFAULT NULL,
+    col34 TEXT DEFAULT NULL,
+    col170 TEXT DEFAULT NULL,
+    col146 TEXT DEFAULT NULL,
+    col44 TEXT AS Type1 NOT NULL,
+    CONSTRAINT cstr17
+        FOREIGN KEY (col140)
+        REFERENCES table41(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr16
+        FOREIGN KEY (col128)
+        REFERENCES table41(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr15
+        FOREIGN KEY (col71)
+        REFERENCES table41(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx95 ON table49(id);
+CREATE INDEX idx100 ON table49(col140);
+CREATE INDEX idx99 ON table49(col128);
+CREATE INDEX idx96 ON table49(col71);
+
+CREATE TABLE table50(
+    col143 TEXT NOT NULL,
+    col94 INTEGER NOT NULL,
+    col21 TEXT NOT NULL,
+    col124 INTEGER NOT NULL,
+    PRIMARY KEY (col143, col21),
+    CONSTRAINT cstr20
+        FOREIGN KEY (col143)
+        REFERENCES table49(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx98 ON table50(col143);

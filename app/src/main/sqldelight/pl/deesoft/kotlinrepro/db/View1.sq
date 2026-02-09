@@ -1,0 +1,95 @@
+count:
+SELECT count(*)
+FROM view1
+WHERE col27 = :col235 OR col27 = 0;
+
+query247:
+SELECT *
+FROM view1
+WHERE col27 = :col235 OR col27 = 0
+ORDER BY col38 DESC
+LIMIT :limit OFFSET :offset;
+
+query248:
+SELECT *
+FROM view1
+WHERE col27 = :col235 OR col27 = 0
+ORDER BY col39 ASC, col38 DESC
+LIMIT :limit OFFSET :offset;
+
+query245:
+SELECT *
+FROM view1
+WHERE col27 = :col235 OR col27 = 0
+ORDER BY col203 ASC, col38 DESC
+LIMIT :limit OFFSET :offset;
+
+query246:
+SELECT *
+FROM view1
+WHERE col27 = :col235 OR col27 = 0
+ORDER BY col207 ASC, col38 DESC
+LIMIT :limit OFFSET :offset;
+
+query289:
+INSERT INTO table1(
+    id,
+    col106,
+    col21,
+    col24,
+    col124,
+    col27,
+    col45,
+    col38,
+    col173,
+    col39,
+    col31
+)
+VALUES (
+    :id,
+    :col106,
+    :col21,
+    :col24,
+    :col124,
+    :col27,
+    :col45,
+    :col38,
+    :col173,
+    :col39,
+    :col31
+)
+ON CONFLICT(id) DO UPDATE SET
+    col106 = excluded.col106,
+    col21 = excluded.col21,
+    col24 = excluded.col24,
+    col124 = excluded.col124,
+    col27 = excluded.col27,
+    col45 = excluded.col45,
+    col38 = excluded.col38,
+    col173 = excluded.col173,
+    col39 = excluded.col39,
+    col31 = excluded.col31;
+
+query16:
+DELETE FROM table1;
+
+query290:
+INSERT INTO table2(col3, col102)
+VALUES (:col3, :col102)
+ON CONFLICT(col3) DO UPDATE SET
+    col102 = excluded.col102;
+
+query150:
+SELECT *
+FROM table2
+WHERE col3 = :col3
+LIMIT 1;
+
+query20:
+DELETE FROM table2;
+
+query29:
+SELECT * FROM view2 WHERE id=:id LIMIT 1;
+
+query30:
+SELECT * FROM table3 WHERE id=:col5;

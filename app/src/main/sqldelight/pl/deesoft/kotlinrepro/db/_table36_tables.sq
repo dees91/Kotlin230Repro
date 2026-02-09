@@ -1,0 +1,30 @@
+import kotlin.Boolean;
+
+CREATE TABLE table36(
+    id TEXT NOT NULL PRIMARY KEY,
+    col87 TEXT NOT NULL DEFAULT "",
+    col103 INTEGER NOT NULL,
+    col7 INTEGER AS Boolean DEFAULT 1 NOT NULL
+);
+
+CREATE INDEX idx77 ON table36(id);
+CREATE INDEX idx78 ON table36(col87);
+CREATE INDEX idx79 ON table36(col103);
+
+CREATE TABLE table57(
+    id TEXT NOT NULL PRIMARY KEY,
+    col87 TEXT NOT NULL DEFAULT "",
+    col103 INTEGER NOT NULL,
+    col65 TEXT NOT NULL,
+    col7 INTEGER AS Boolean DEFAULT 1 NOT NULL,
+    col49 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    CONSTRAINT cstr11
+        FOREIGN KEY (col65)
+        REFERENCES table36(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE INDEX idx102 ON table57(id);
+CREATE INDEX idx103 ON table57(col87);
+CREATE INDEX idx104 ON table57(col103);

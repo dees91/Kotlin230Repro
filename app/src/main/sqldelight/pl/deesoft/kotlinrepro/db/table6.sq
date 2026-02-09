@@ -1,0 +1,15 @@
+query67:
+SELECT * FROM view8
+WHERE col15=:col15 AND col158=:col158;
+
+query60:
+SELECT col15, col21, col124 AS col243 FROM view9
+WHERE col15=:col15 AND col158=:col158;
+
+query57:
+SELECT col15, col21, col124 AS col197 FROM view7
+WHERE col15=:col15 AND col158=:col158;
+
+query61:
+SELECT col15, col21, COUNT(col166) AS col260 FROM view11
+WHERE col15=:col15 AND col158=:col158 GROUP BY col21;

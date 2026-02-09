@@ -1,0 +1,35 @@
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view40;
+    DROP VIEW IF EXISTS view37;
+
+    CREATE VIEW IF NOT EXISTS view40 AS
+        SELECT
+            s.id,
+            s.col101,
+            s.col103,
+            es.col150,
+            es.col78,
+            s.col30
+        FROM table19 s
+        JOIN table54 es ON s.id=es.col24
+        WHERE col7 = 1;
+
+    CREATE VIEW IF NOT EXISTS view37 AS
+        SELECT
+            s.id,
+            s.col101,
+            s.col103,
+            s.table60,
+            s.col123,
+            s.col131,
+            es.col150,
+            es.col78,
+            s.col30
+        FROM table19 s
+        JOIN table54 es ON s.id=es.col24
+        WHERE col7 = 1;
+
+        ALTER TABLE table43 ADD COLUMN col109 INTEGER DEFAULT 100;
+
+COMMIT;

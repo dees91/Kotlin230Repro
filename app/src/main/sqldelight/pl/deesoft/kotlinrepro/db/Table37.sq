@@ -1,0 +1,69 @@
+query202:
+INSERT OR IGNORE INTO table37 VALUES ?;
+
+query269:
+UPDATE table37 SET
+    col133 = :col133,
+    col11 = col11 + 1,
+    col10 = (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+WHERE id = :col240;
+
+query132:
+SELECT j.id,j.col86,j.col114,j.col38,j.col11,j.col10
+FROM table37 j
+LEFT JOIN table6 ae ON (CASE WHEN j.col86 IN ('VAL3', 'VAL4') THEN JSON_EXTRACT(j.col114, '$.id') ELSE NULL END) = ae.id
+LEFT JOIN table37 cj ON ae.col164 = cj.id
+WHERE
+    j.col11 < 500
+    AND (
+        j.col133 IS NULL
+        OR (j.col133 >=0 AND j.col133 < 200)
+        OR j.col133 >= 300
+    )
+    AND (
+        ae.id IS NULL
+        OR cj.id IS NOT NULL
+        OR (
+            ae.col108 = 3
+            AND (
+                (
+                    SELECT COUNT(*)
+                    FROM table37
+                    WHERE
+                        col86 = 'VAL2'
+                        AND col114 LIKE '%'||ae.id||'%'
+                ) = 0
+            )
+        )
+    )
+ORDER BY j.col121,j.col38 ASC LIMIT 1;
+
+query121:
+SELECT count(id) FROM table37;
+
+query140:
+SELECT count(id) FROM table37 WHERE
+    col11 < 500
+    AND (
+        col133 IS NULL
+        OR (col133 >=0 AND col133 < 200)
+        OR col133>=300
+    );
+
+query92:
+SELECT * FROM table37 WHERE
+    (col133 < 200 OR col133 >= 300)
+    AND col86 IN ('VAL2', 'VAL3', 'VAL4');
+
+query227:
+UPDATE table37 SET col133 = NULL, col11 = 0, col10 = NULL WHERE id IN :col233;
+
+query21:
+UPDATE table37 SET
+    col133 = -1,
+    col11 = col11 + 1,
+    col10 = (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+WHERE id = :col240;
+
+query228:
+UPDATE table37 SET col133 = NULL, col11 = 0, col10 = NULL WHERE col133 < 200 OR col133 >= 300;

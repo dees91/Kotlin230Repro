@@ -1,0 +1,7 @@
+import kotlin.Boolean;
+
+BEGIN TRANSACTION;
+
+    ALTER TABLE table43 ADD COLUMN col75 INTEGER AS Boolean DEFAULT 0 NOT NULL;
+
+COMMIT;

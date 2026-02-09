@@ -1,0 +1,107 @@
+import java.time.ZonedDateTime;
+
+BEGIN TRANSACTION;
+    PRAGMA foreign_keys=off;
+
+    DROP VIEW IF EXISTS view34;
+    DROP VIEW IF EXISTS view21;
+    DROP VIEW IF EXISTS view30;
+    DROP VIEW IF EXISTS view5;
+
+    CREATE TABLE table25(
+     id TEXT NOT NULL PRIMARY KEY,
+     col18 TEXT NOT NULL,
+     col22 TEXT NOT NULL,
+     table23 INTEGER NOT NULL DEFAULT 0,
+     col53 TEXT AS ZonedDateTime NOT NULL,
+     col24 TEXT NOT NULL,
+         CONSTRAINT cstr7
+             FOREIGN KEY (col24)
+             REFERENCES table19(id)
+             ON DELETE NO ACTION
+             ON UPDATE NO ACTION,
+         CONSTRAINT cstr3
+             FOREIGN KEY (col18)
+             REFERENCES table5(id)
+             ON DELETE CASCADE
+             ON UPDATE NO ACTION,
+         CONSTRAINT cstr22
+             FOREIGN KEY (col22)
+             REFERENCES table57(id)
+             ON DELETE NO ACTION
+             ON UPDATE NO ACTION
+     );
+
+     INSERT INTO table25(id, col18, col22, table23, col53, col24)
+     SELECT id, col18, col22, table23, col53, col24 FROM table24;
+
+    DROP TABLE table24;
+
+    ALTER TABLE table25 RENAME TO table24;
+
+    CREATE INDEX idx49 ON table24(id);
+    CREATE INDEX idx48 ON table24(col24);
+    CREATE INDEX idx50 ON table24(col22);
+    CREATE INDEX idx51 ON table24(col18);
+
+    DROP INDEX IF EXISTS idx43;
+    DROP INDEX IF EXISTS idx42;
+    DROP INDEX IF EXISTS idx44;
+
+    CREATE INDEX idx43 ON table23(id);
+    CREATE INDEX idx42 ON table23(col24);
+    CREATE INDEX idx44 ON table23(col22);
+
+    CREATE VIEW IF NOT EXISTS view21 AS
+        SELECT
+                I.id AS col15,
+                I.col24 AS col24,
+                EI.col22 AS col158,
+                M.id AS col65,
+                C.col87 AS col267,
+                M.col87 AS col231,
+                C.col103 AS col268,
+                COALESCE(EI.table23,0) AS col223,
+                COALESCE((SELECT SUM(col124) FROM table6 WHERE col158 = EI.col22 AND col15 = I.id),0) AS col214,
+                C.col49
+            FROM table24 EI
+            LEFT JOIN table5 I ON EI.col18 = I.id
+            LEFT JOIN table57 C ON EI.col22 = C.id
+            LEFT JOIN table36 M ON C.col65 = M.id
+            GROUP BY I.id, EI.col22
+            ORDER BY col267 ASC;
+
+    CREATE VIEW IF NOT EXISTS view30 AS
+        SELECT
+            IR.col15,
+            IR.col158,
+            C.col87 AS col267,
+            C.col103 AS col268,
+            col184.table23 AS table23,
+            COALESCE(SUM(IR.col124),0) AS col124
+        FROM table6 IR
+        LEFT JOIN table57 C ON IR.col158 = C.id
+        LEFT JOIN table24 col184 ON IR.col158 = col184.col22 AND IR.col15 = col184.col18
+        GROUP BY IR.col15, IR.col158
+        ORDER BY IR.col124 ASC, col267 ASC;
+
+    CREATE VIEW view5 AS
+        SELECT
+            S.id AS col24,
+            S.col160 AS col160,
+            S.col162,
+            S.col269,
+            S.col101 AS col101,
+            S.col103 AS col103,
+            S.col123 AS col123,
+            S.col150 AS col150,
+            S.col78 AS col78,
+            S.col30 AS col30,
+            (SELECT COALESCE(COUNT(I.id), 0) FROM table5 I WHERE I.col24=S.id AND I.col155 IN ('VAL121', 'VAL201', 'VAL122', 'VAL68', 'VAL1', 'VAL14', 'VAL17')) AS col194,
+            (SELECT TOTAL(EC.table23) FROM table24 EC WHERE EC.col24=S.id) AS col222
+        FROM view26 S
+        WHERE col7 = 1
+        ORDER BY S.col160 ASC, S.col103 ASC, col222 DESC;
+
+    PRAGMA foreign_keys=on;
+COMMIT;

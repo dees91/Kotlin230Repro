@@ -1,0 +1,21 @@
+DROP VIEW IF EXISTS view12;
+CREATE VIEW view12 AS
+    SELECT
+        I.id,
+        I.col101,
+        I.col103,
+        I.col26,
+        I.col62,
+        I.col152,
+        I.col155 AS col154,
+        T.col69 AS col171,
+        T.col87 AS col275,
+        S.col101 AS col206,
+	    C.col272,
+        ST.col149,
+        ST.col93
+    FROM table5 I
+    INNER JOIN table10 T ON I.col172=T.id
+    INNER JOIN table19 S ON I.col24=S.id
+    INNER JOIN table9 ST ON I.col155=ST.id
+    LEFT JOIN view6 C ON I.id=C.col15;

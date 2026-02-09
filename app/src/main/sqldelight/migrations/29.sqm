@@ -1,0 +1,44 @@
+BEGIN TRANSACTION;
+
+ PRAGMA foreign_keys=off;
+
+    DROP INDEX IF EXISTS idx90;
+
+    CREATE TABLE table44 (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        col123 TEXT NOT NULL,
+        col23 TEXT DEFAULT NULL,
+        col116 TEXT DEFAULT NULL,
+        col180 INTEGER DEFAULT NULL,
+        col161 INTEGER DEFAULT NULL,
+        col179 INTEGER DEFAULT NULL,
+        col17 INTEGER DEFAULT NULL,
+        col14 INTEGER DEFAULT NULL,
+        col16 INTEGER DEFAULT NULL,
+        col144 INTEGER DEFAULT NULL,
+        col12 INTEGER DEFAULT NULL,
+        CONSTRAINT cstr14
+            FOREIGN KEY (col123)
+            REFERENCES table41(id)
+            ON DELETE CASCADE
+    );
+
+CREATE INDEX idx90 ON table44(id);
+
+    INSERT INTO table44(id, col123, col23, col116,
+    col180, col161, col179,
+    col17, col14, col16,
+    col144, col12)
+        SELECT id, col123, col23, col116,
+                   col180, col161, col179,
+                   col17, col14, col16,
+                   col144, col12
+        FROM table43;
+
+    DROP TABLE table43;
+
+    ALTER TABLE table44 RENAME TO table43;
+
+    PRAGMA foreign_keys=on;
+
+COMMIT;

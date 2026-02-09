@@ -1,0 +1,111 @@
+query41:
+SELECT * FROM table19;
+
+query152:
+SELECT * FROM view37
+WHERE id = :id
+LIMIT 1;
+
+query153:
+SELECT * FROM view37
+WHERE col150 = :col150
+AND (col30 IS NULL
+    OR col30 > (
+        SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+        FROM table43
+        )
+    )
+ ORDER BY col103 ASC, col78 DESC;
+
+query238:
+    SELECT *
+    FROM view37
+    WHERE
+        col150 = :col150
+        AND (
+            CAST(col103 AS TEXT) LIKE '%'||:query||'%' OR
+            col101 LIKE '%'||:query||'%'
+        )
+        AND (col30 IS NULL
+            OR col30 > (
+                SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+                FROM table43
+                )
+            )
+    ORDER BY col103 ASC, col78 DESC;
+
+query147:
+SELECT * FROM table41 WHERE col103!=?1 ORDER BY col103;
+
+query156:
+SELECT * FROM view25;
+
+query164:
+SELECT * FROM view25 WHERE id = ?;
+
+query180:
+SELECT * FROM view25 WHERE col147 = ?;
+
+query5:
+SELECT count(*) FROM table49 WHERE id = ?;
+
+query6:
+SELECT count(*) FROM table61 WHERE col147 = ?;
+
+query249:
+SELECT count(*) FROM table49 WHERE col2 IS NULL AND col70 IS NULL AND col132 IS NULL;
+
+query250:
+SELECT count(*)
+FROM table49
+WHERE col2 IS NULL
+    AND col70 IS NULL
+    AND col132 IS NULL
+    AND (col34 LIKE '%'||:col215||'%'
+      OR col34 LIKE '%'||:col273||'%'
+);
+
+query26:
+UPDATE table49 SET
+    col132 =?2
+WHERE id =?1;
+
+query27:
+UPDATE table49 SET
+    col2 =?2
+WHERE id =?1;
+
+query28:
+UPDATE table61 SET
+    col2 =?2
+WHERE col147 =?1;
+
+query279:
+UPDATE table49 SET
+    col170 = :col170
+WHERE id = :id;
+
+query155:
+SELECT * FROM table53;
+
+query145:
+SELECT *
+FROM table19 B
+WHERE B.col167 = :col167
+AND (col30 IS NULL
+    OR col30 > (
+        SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+        FROM table43
+        )
+    );
+
+query149:
+SELECT B.col131
+FROM table19 B
+WHERE B.col167 = :col167 AND B.col131 IS NOT NULL;
+
+query44:
+SELECT * FROM table41 P WHERE P.id IN (SELECT DISTINCT B.col131 FROM table19 B WHERE B.col131 IS NOT NULL);
+
+query148:
+SELECT * FROM table41 WHERE id = :col123;

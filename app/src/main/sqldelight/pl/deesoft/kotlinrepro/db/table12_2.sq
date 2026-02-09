@@ -1,0 +1,30 @@
+query254:
+UPDATE table12 SET
+    col28 = :col28,
+    col83 = :col83,
+    col87 = :col87,
+    col158 = :col158,
+    col65 = (SELECT SG.col65 FROM table57 SG WHERE id = :col158),
+    col36 = :col36,
+    col46 = :col46,
+    col135 = :col135,
+    col64 = :col64,
+    col25 = :col25,
+    col122 = :col122,
+    col5 = :col5
+WHERE id = :id;
+
+query188:
+INSERT INTO table12(id, col28, col83, col87, col158, col65, col135, col46, col36, col64, col25, col122, col5)
+    SELECT :id, :col28, :col83, :col87, :col158, SG.col65, :col135, :col46, :col36, :col64, :col25, :col122, :col5
+    FROM table57 SG WHERE id = :col158 AND (SELECT changes() = 0);
+
+query255:
+UPDATE table13 SET
+    col69 = :col69,
+    col87 = :col87
+WHERE id = :id;
+
+query187:
+INSERT INTO table13(id, col69, col87)
+    SELECT :id, :col69, :col87 WHERE (SELECT changes() = 0);

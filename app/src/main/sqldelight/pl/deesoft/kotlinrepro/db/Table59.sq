@@ -1,0 +1,63 @@
+query4:
+DELETE FROM table59 WHERE key = :key;
+
+query176:
+SELECT * FROM table59 WHERE key = :key;
+
+query47:
+SELECT * FROM table59 ORDER BY col50;
+
+query120:
+SELECT * FROM table59 WHERE col67 = 0 OR col48 IS NOT NULL OR col90 IS NULL;
+
+query123:
+SELECT * FROM table59 ORDER BY col90 ASC LIMIT 1;
+
+query86:
+SELECT count(id) FROM table59;
+
+query276:
+UPDATE table59 SET
+    col50=:col50,
+    col67=:col67,
+    col112=:col112,
+    col92=:col92,
+    col169=:col169,
+    col48=:col48
+WHERE key = :key;
+
+query277:
+UPDATE table59 SET
+    col67=0,
+    col48=:col48
+WHERE key = :key;
+
+query261:
+UPDATE table59 SET
+    col67=0,
+    col112=:col112,
+    col92=:col92,
+    col169=:col169,
+    col48=:col48
+WHERE key = :key;
+
+query275:
+UPDATE table59 SET
+    col67=1,
+    col92=:col92,
+    col169=:col169,
+    col90=:col90
+WHERE key = :key;
+
+query267:
+UPDATE table59 SET
+    col67=:col67,
+    col112=:col112,
+    col169=:col169,
+    col92=:col92,
+    col48=:col48
+WHERE key = :key;
+
+query220:
+INSERT OR REPLACE INTO table59(key, col50, col67, col112, col92, col169, col48, col90)
+    SELECT :key, :col50, :col67, :col112, :col92, :col169, :col48, :col90 WHERE (SELECT changes() = 0);

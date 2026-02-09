@@ -1,0 +1,54 @@
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view31;
+
+    CREATE VIEW IF NOT EXISTS view32 AS
+        WITH succession AS (
+          SELECT
+              s.col21,
+              s.col159
+          FROM table17 s
+          JOIN table12 sp ON sp.id = s.col159
+          WHERE s.col7 = 1
+            AND sp.col122 = 1
+            AND sp.col5 IS NOT NULL
+        )
+        SELECT
+            p.id,
+            p.col28,
+            p.col87,
+            p.col83,
+            mc.col87 AS col231,
+            p.col65,
+            p.col158,
+            c.col87 AS col267,
+            p.col36 AS col276,
+            p.col25,
+            u.col87 AS col226,
+            u.col69 AS col225,
+            ps.col87 AS col216,
+            opt.col8 AS col193,
+            optc.col69 AS table4,
+            succession.col159 AS col159,
+            CASE
+                WHEN p.col122 AND succession.col159 IS NOT NULL THEN 'VAL235'
+                WHEN succession.col159 IS NOT NULL THEN 'VAL236'
+                ELSE 'VAL186'
+            END AS col249
+        FROM table12 p
+        LEFT JOIN succession ON succession.col21 = p.id
+        LEFT JOIN table14 u ON p.col64 = u.id
+        LEFT JOIN table57 c ON p.col158 = c.id
+        LEFT JOIN table36 mc ON p.col65 = mc.id
+        LEFT JOIN table13 ps ON p.col46 = ps.id
+        LEFT JOIN table3 opt ON p.col5 = opt.id
+        LEFT JOIN table4 optc ON opt.col4 = optc.id
+        WHERE
+            p.col122 = 1 AND p.col5 IS NOT NULL
+            OR (
+                p.col122 = 0 AND succession.col159 IS NOT NULL
+            )
+    ;
+
+COMMIT;
+

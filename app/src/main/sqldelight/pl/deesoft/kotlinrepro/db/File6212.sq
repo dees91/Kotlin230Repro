@@ -1,0 +1,37 @@
+query63:
+SELECT * FROM view13
+WHERE col15=:col15;
+
+query64:
+SELECT * FROM view13
+WHERE col15=:col15 AND col28 = :col28 LIMIT 1;
+
+query77:
+SELECT col219, col124 AS col243 FROM view9
+WHERE col15=:col15 AND col28 = :col28;
+
+query76:
+SELECT col219, col124 AS col197, col28 FROM view7
+WHERE col15=:col15 AND col28 = :col28;
+
+query78:
+SELECT col219, COUNT(col166) AS col260 FROM view11
+WHERE col15=:col15 AND col28 = :col28 GROUP BY col21;
+
+query58:
+SELECT * FROM table6 WHERE col28=:col28 AND col15=:col15 AND col136 = :col136;
+
+query59:
+SELECT * FROM table6 WHERE col83=:col83 AND col15=:col15 AND col136 = :col136;
+
+query1:
+UPDATE table6 SET
+    col124 = col124 + :col124,
+    col91 = (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+WHERE id = :col219;
+
+query2:
+UPDATE table6 SET
+    col124 = :col124,
+    col91 = (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
+WHERE id = :col219;

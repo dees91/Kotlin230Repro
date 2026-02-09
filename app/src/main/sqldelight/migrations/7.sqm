@@ -1,0 +1,1 @@
+UPDATE table10 SET col69 = "VAL194" WHERE col69 = "VAL234";

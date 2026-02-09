@@ -1,0 +1,27 @@
+BEGIN TRANSACTION;
+
+UPDATE table49
+SET
+    col2 = substr(col2, instr(col2, '|')+1) || '|' ||  substr(col2, 0, instr(col2, '|')),
+    col132 = substr(col132, instr(col132, '|')+1) || '|' ||  substr(col132, 0, instr(col132, '|')),
+    col44 = substr(col44, instr(col44, '|')+1) || '|' ||  substr(col44, 0, instr(col44, '|'));
+
+UPDATE table5
+SET
+    col62 = substr(col62, instr(col62, '|')+1) || '|' ||  substr(col62, 0, instr(col62, '|')),
+    col26 = substr(col26, instr(col26, '|')+1) || '|' ||  substr(col26, 0, instr(col26, '|')),
+    col153 = substr(col153, instr(col153, '|')+1) || '|' ||  substr(col153, 0, instr(col153, '|'));
+
+UPDATE table38
+SET
+    col2 = substr(col2, instr(col2, '|')+1) || '|' ||  substr(col2, 0, instr(col2, '|')),
+    col132 = substr(col132, instr(col132, '|')+1) || '|' ||  substr(col132, 0, instr(col132, '|')),
+    col44 = substr(col44, instr(col44, '|')+1) || '|' ||  substr(col44, 0, instr(col44, '|'));
+
+UPDATE table63
+SET
+    col37 = substr(col37, instr(col37, '|')+1) || '|' ||  substr(col37, 0, instr(col37, '|')),
+    col132 = substr(col132, instr(col132, '|')+1) || '|' ||  substr(col132, 0, instr(col132, '|')),
+    col98 = substr(col98, instr(col98, '|')+1) || '|' ||  substr(col98, 0, instr(col98, '|'));
+
+COMMIT;

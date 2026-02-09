@@ -1,0 +1,32 @@
+BEGIN TRANSACTION;
+
+    DROP INDEX IF EXISTS idx97;
+    DROP INDEX IF EXISTS idx98;
+
+    CREATE TABLE table51(
+        col143 TEXT NOT NULL,
+        col94 INTEGER NOT NULL,
+        col21 TEXT NOT NULL,
+        col124 INTEGER NOT NULL,
+        PRIMARY KEY (col143, col21),
+        CONSTRAINT cstr20
+            FOREIGN KEY (col143)
+            REFERENCES table49(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION,
+        CONSTRAINT cstr4
+            FOREIGN KEY (col21)
+            REFERENCES table12(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    );
+
+    INSERT INTO table51(col143, col94, col21, col124)
+        SELECT col143, col94, col21, col124 FROM table50;
+
+    DROP TABLE table50;
+    ALTER TABLE table51 RENAME TO table50;
+
+    CREATE INDEX idx98 ON table50(col143);
+
+COMMIT;

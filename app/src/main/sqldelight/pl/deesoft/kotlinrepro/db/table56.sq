@@ -1,0 +1,79 @@
+query31:
+SELECT * FROM view26 SB WHERE SB.col150 = :col150 AND SB.col7 = 1 AND SB.col78 = 1 LIMIT 1;
+
+query34:
+SELECT * FROM view26 SB
+WHERE
+    SB.col150 = :col150
+    AND SB.col7=1
+    AND (col30 IS NULL
+        OR col30 > (
+            SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+            FROM table43
+            )
+        )
+ORDER BY SB.col160, SB.col103 ASC;
+
+query234:
+    SELECT *
+    FROM view26 SB
+    WHERE
+        SB.col150 = :col150 AND
+        SB.col7 = 1 AND
+        (
+            col30 IS NULL OR
+            col30 > (
+                SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+                FROM table43
+            )
+        ) AND
+        (
+            CAST(col103 AS TEXT) LIKE '%'||:query||'%' OR
+            col101 LIKE '%'||:query||'%'
+        )
+    ORDER BY SB.col160, SB.col103 ASC;
+
+query159:
+SELECT * FROM view26 SB WHERE SB.col150 = :col150 AND SB.id = :col24;
+
+query217:
+INSERT OR IGNORE INTO table56(col150)
+VALUES (?);
+
+query163:
+SELECT * FROM table56 WHERE col150 = ?;
+
+query271:
+UPDATE table56 SET
+    col117 = ?2
+WHERE col150 = ?1;
+
+query272:
+UPDATE table56 SET
+    col118 = ?2
+WHERE col150 = ?1;
+
+query216:
+INSERT INTO table55(
+    id,
+    col87,
+    col89,
+    col175,
+    col7,
+    col19,
+    col149
+) VALUES (
+    :id,
+    :col87,
+    :col89,
+    :col175,
+    :col7,
+    :col19,
+    :col149
+);
+
+query162:
+SELECT * FROM table55;
+
+query17:
+DELETE FROM table55;

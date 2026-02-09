@@ -1,0 +1,24 @@
+BEGIN TRANSACTION;
+
+    ALTER TABLE table19
+        ADD col131 TEXT DEFAULT NULL;
+    ALTER TABLE table19
+        ADD col168 TEXT DEFAULT NULL;
+    ALTER TABLE table19
+        ADD table60 TEXT DEFAULT NULL;
+
+    CREATE VIEW IF NOT EXISTS view37 AS
+        SELECT
+            s.id,
+            s.col101,
+            s.col103,
+            s.table60,
+            s.col123,
+            s.col131,
+            es.col150,
+            es.col78,
+            s.col30
+        FROM table19 s
+        JOIN table54 es ON s.id=es.col24;
+
+COMMIT;

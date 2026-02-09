@@ -1,0 +1,24 @@
+query98:
+SELECT * FROM table6 WHERE col15 = :col15 ORDER BY col91 DESC;
+
+query99:
+SELECT * FROM table6 WHERE id=:id;
+
+query122:
+SELECT col91 FROM table6 WHERE col15 = :col15 ORDER BY col91 DESC LIMIT 1;
+
+query175:
+SELECT SUM(col124) AS col124 FROM view15 BC WHERE col15 = :col15;
+
+query24:
+SELECT count(B.id) FROM view36 B
+    LEFT JOIN table8 col182 ON col182.col65 = B.col65
+WHERE col182.col15 = :col15 AND (B.col83 = :code OR B.col28 = :code);
+
+query25:
+SELECT count(B.id) FROM view36 B
+    LEFT JOIN table8 col182 ON col182.col158 = B.col158
+WHERE col182.col15 = :col15 AND (B.col83 = :code OR B.col28 = :code);
+
+query231:
+DELETE FROM table6 WHERE id=:id;

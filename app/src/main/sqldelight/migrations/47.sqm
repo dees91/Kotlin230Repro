@@ -1,0 +1,8 @@
+import java.time.ZonedDateTime;
+
+BEGIN TRANSACTION;
+
+    ALTER TABLE table59 ADD COLUMN col90 TEXT AS ZonedDateTime;
+    ALTER TABLE table22 ADD COLUMN col90 TEXT AS ZonedDateTime;
+
+COMMIT;

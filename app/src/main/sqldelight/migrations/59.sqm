@@ -1,0 +1,76 @@
+import java.time.ZonedDateTime;
+
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view22;
+
+    DROP INDEX IF EXISTS idx73;
+    DROP INDEX IF EXISTS idx72;
+
+    CREATE TABLE table35(
+        id TEXT NOT NULL,
+        col101 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col176 TEXT AS ZonedDateTime NOT NULL,
+        col6 TEXT AS ZonedDateTime NOT NULL,
+        col154 TEXT AS Type7 NOT NULL,
+        PRIMARY KEY (id, col24)
+    );
+
+    INSERT INTO table35(id, col101, col24, col176, col6, col154)
+    SELECT id, col101, col24, col176, col176, col154 FROM table27;
+
+    DROP TABLE table27;
+
+    ALTER TABLE table35 RENAME TO table27;
+
+    CREATE INDEX idx73 ON table27(id);
+    CREATE INDEX idx72 ON table27(col24);
+
+    CREATE VIEW IF NOT EXISTS view22 AS
+        WITH localStatuses AS (
+            SELECT
+                col55,
+                col24,
+                CASE
+                    WHEN COUNT(DISTINCT AreaStatus) = 1 AND SUM(CASE WHEN AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL203'
+                    WHEN SUM(CASE WHEN AreaStatus = 'VAL231' OR AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL231'
+                    ELSE 'VAL184'
+                END AS col241
+            FROM
+                (
+                  SELECT
+                        pc.id AS col55,
+                        pc.col24,
+                        CASE
+                            WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NULL THEN 'VAL231'
+                            WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NOT NULL THEN 'VAL203'
+                            ELSE 'VAL184'
+                        END AS AreaStatus
+                    FROM
+                        table27 pc
+                    LEFT JOIN
+                        table29 pcpa ON pc.id = pcpa.col55 AND pc.col24 = pcpa.col24
+                ) AS col191
+            GROUP BY
+                col55, col24
+        )
+        SELECT
+            pc.id,
+            pc.col101,
+            pc.col24,
+            pc.col176,
+            pc.col6,
+            pc.col154 AS col258,
+            ls.col241,
+            CASE
+                WHEN pc.col154 IN ('VAL262', 'VAL90') THEN pc.col154
+                ELSE ls.col241
+            END AS col212
+        FROM
+            table27 pc
+        INNER JOIN localStatuses ls ON pc.id = ls.col55 AND pc.col24 = ls.col24
+        ORDER BY
+            pc.col176 DESC, pc.id DESC;
+
+COMMIT;

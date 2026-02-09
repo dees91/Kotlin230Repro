@@ -1,0 +1,97 @@
+CREATE VIEW IF NOT EXISTS view23 AS
+    SELECT
+        B.id,
+        B.col28,
+        B.col87,
+        B.col83,
+        G.col87 AS col231,
+        B.col65,
+        B.col158,
+        SG.col87 AS col267,
+        B.col36 AS col276,
+        B.col46,
+        BE.col87 AS col216
+    FROM table12 B
+    LEFT JOIN table57 SG ON B.col158=SG.id
+    LEFT JOIN table36 G ON SG.col65=G.id
+    LEFT JOIN table13 BE ON B.col46=BE.id;
+
+CREATE VIEW IF NOT EXISTS view36 AS
+    SELECT
+        b.id,
+        b.col28,
+        b.col83,
+        sg.col87 AS col267,
+        sg.id AS col158,
+        g.id AS col65,
+        b.col36 AS col276
+    FROM table12 b
+    LEFT JOIN table57 sg ON b.col158=sg.id
+    LEFT JOIN table36 g ON b.col65=g.id;
+
+CREATE VIEW IF NOT EXISTS view35 AS
+    SELECT
+        B.id,
+        B.col28,
+        B.col87,
+        B.col36 AS col276
+    FROM table12 B;
+
+CREATE VIEW IF NOT EXISTS view3 AS
+    SELECT
+        B.id,
+        B.col28,
+        B.col83,
+        B.col158,
+        B.col65,
+        SG.col49
+    FROM table12 B
+    LEFT JOIN table57 SG ON B.col158=SG.id;
+
+CREATE VIEW IF NOT EXISTS view32 AS
+    WITH revision AS (
+      SELECT
+          r.col21,
+          r.col134
+      FROM table17 r
+      JOIN table12 rb ON rb.id = r.col134
+      WHERE r.col7 = 1
+        AND rb.col122 = 1
+        AND rb.col5 IS NOT NULL
+    )
+    SELECT
+        b.id,
+        b.col28,
+        b.col87,
+        b.col83,
+        g.col87 AS col231,
+        b.col65,
+        b.col158,
+        sg.col87 AS col267,
+        b.col36 AS col276,
+        b.col25,
+        bf.col87 AS col226,
+        bf.col69 AS col225,
+        be.col87 AS col216,
+        apt.col8 AS col193,
+        aptc.col69 AS table4,
+        revision.col134 AS col134,
+        CASE
+            WHEN b.col122 AND revision.col134 IS NOT NULL THEN 'VAL211'
+            WHEN revision.col134 IS NOT NULL THEN 'VAL212'
+            ELSE 'VAL185'
+        END AS col251
+    FROM table12 b
+    LEFT JOIN revision ON revision.col21 = b.id
+    LEFT JOIN table14 bf ON b.col64 = bf.id
+    LEFT JOIN table57 sg ON b.col158 = sg.id
+    LEFT JOIN table36 g ON b.col65 = g.id
+    LEFT JOIN table13 be ON b.col46 = be.id
+    LEFT JOIN table3 apt ON b.col5 = apt.id
+    LEFT JOIN table4 aptc ON apt.col4 = aptc.id
+    WHERE
+        b.col122 = 1 AND b.col5 IS NOT NULL
+        OR (
+            b.col122 = 0 AND revision.col134 IS NOT NULL
+        )
+;

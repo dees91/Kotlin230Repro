@@ -1,0 +1,15 @@
+import java.time.ZonedDateTime;
+
+BEGIN TRANSACTION;
+
+    PRAGMA foreign_keys=off;
+
+    ALTER TABLE table19
+        ADD col123 TEXT DEFAULT NULL;
+
+    ALTER TABLE table54
+        ADD col162 TEXT DEFAULT NULL;
+
+    PRAGMA foreign_keys=on;
+
+COMMIT;

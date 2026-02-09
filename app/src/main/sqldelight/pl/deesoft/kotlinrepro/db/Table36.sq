@@ -1,0 +1,37 @@
+query118:
+SELECT * FROM table36 WHERE col7 = 1 ORDER BY col103;
+
+query119:
+SELECT * FROM table36 WHERE id IN (
+    SELECT SG.col65 FROM table57 SG
+    INNER JOIN table23 ES ON SG.id = ES.col22
+    WHERE col24 = :col24
+)
+AND col7 = 1
+ORDER BY col103;
+
+query117:
+SELECT * FROM table36 WHERE id=?1;
+
+query172:
+SELECT * FROM table57;
+
+query35:
+SELECT SG.* FROM table57 SG
+INNER JOIN table23 ES ON SG.id = ES.col22
+WHERE
+    SG.col7 = 1
+    AND col24 = :col24
+ORDER BY col103;
+
+query170:
+SELECT * FROM table57 WHERE id=?1;
+
+query171:
+SELECT * FROM view39 WHERE id=(SELECT col158 FROM table12 WHERE id=?1);
+
+query133:
+SELECT * FROM table36 WHERE col7 = 1 AND id IN (SELECT DISTINCT col65 FROM table12 WHERE col46 IN :col46) ORDER BY col103;
+
+query134:
+ SELECT * FROM table57 WHERE col7 = 1 AND col65 = :col65 AND id IN (SELECT DISTINCT col158 FROM table12 WHERE col46 IN :col46) ORDER BY col103;

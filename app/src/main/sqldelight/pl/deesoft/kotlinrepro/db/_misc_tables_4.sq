@@ -1,0 +1,12 @@
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+CREATE TABLE table45(
+    id TEXT NOT NULL PRIMARY KEY,
+    col40 TEXT AS ZonedDateTime NOT NULL,
+    col97 TEXT NOT NULL,
+    col123 TEXT NOT NULL,
+    col20 TEXT NOT NULL DEFAULT "",
+    col142 INTEGER AS Boolean DEFAULT 0,
+    col138 INTEGER AS Boolean DEFAULT 0
+);

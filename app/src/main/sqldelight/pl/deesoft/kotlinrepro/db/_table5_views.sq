@@ -1,0 +1,148 @@
+CREATE VIEW IF NOT EXISTS view6 AS
+    SELECT
+        col15,
+        SUM(col124) AS col272
+    FROM table6
+    GROUP BY col15;
+
+CREATE VIEW IF NOT EXISTS view12 AS
+    SELECT
+        A.id,
+        A.col101,
+        A.col103,
+        A.col26,
+        A.col62,
+        A.col152,
+        A.col155 AS col154,
+        T.col69 AS col171,
+        T.col87 AS col275,
+        B.col101 AS col206,
+	    C.col272,
+	    A.col148,
+        ST.col149,
+        ST.col93
+    FROM table5 A
+    INNER JOIN table10 T ON A.col172=T.id
+    INNER JOIN table19 B ON A.col24=B.id
+    INNER JOIN table9 ST ON A.col155=ST.id
+    LEFT JOIN view6 C ON A.id=C.col15;
+
+CREATE VIEW IF NOT EXISTS view14 AS
+    SELECT
+        A.id,
+        A.col101,
+        A.col103,
+        A.col152,
+        A.col155 AS col266,
+        col192.col87 AS col275,
+        col192.col69 AS col274,
+        col183.col101 AS col207,
+        A.col153,
+        A.col26,
+        A.col62,
+        col190.col149,
+        col190.col125,
+        col190.col93
+    FROM table5 A
+    INNER JOIN table10 col192 ON A.col172=col192.id
+    INNER JOIN table9 col190 ON A.col155=col190.id
+    LEFT JOIN table19 col183 ON A.col24=col183.id;
+
+CREATE VIEW view5 AS
+    SELECT
+        B.id AS col24,
+        B.col160 AS col160,
+        B.col162,
+        B.col270,
+        B.col101 AS col101,
+        B.col103 AS col103,
+        B.col123 AS col123,
+        B.col150 AS col150,
+        B.col78 AS col78,
+        B.col30 AS col30,
+        (SELECT COALESCE(COUNT(A.id), 0) FROM table5 A WHERE A.col24=B.id AND A.col155 IN ('VAL1', 'VAL14', 'VAL17')) AS col194,
+        (SELECT TOTAL(ES.col51) FROM table24 ES WHERE ES.col24=B.id) AS col222
+    FROM view26 B
+    WHERE col7 = 1
+    ORDER BY B.col160 ASC, B.col103 ASC, col222 DESC;
+
+CREATE VIEW IF NOT EXISTS view15 AS
+    SELECT
+        AE.col15,
+        AE.col21,
+        COALESCE(SUM(AE.col124),0) AS col124,
+        AE.col136
+    FROM table6 AE
+    WHERE AE.col21 IS NOT NULL
+    GROUP BY AE.col21, AE.col15, AE.col136;
+
+CREATE VIEW IF NOT EXISTS view20 AS
+    SELECT
+            A.id AS col15,
+            A.col24 AS col24,
+            ES.col22 AS col158,
+            G.id AS col65,
+            SG.col87 AS col267,
+            G.col87 AS col231,
+            SG.col103 AS col268,
+            COALESCE(ES.col51,0) AS col223,
+            COALESCE((SELECT SUM(col124) FROM table6 WHERE col158 = ES.col22 AND col15 = A.id),0) AS col214,
+            SG.col49
+        FROM table24 ES
+        LEFT JOIN table5 A ON ES.col18 = A.id
+        LEFT JOIN table57 SG ON ES.col22 = SG.id
+        LEFT JOIN table36 G ON SG.col65 = G.id
+        GROUP BY A.id, ES.col22
+        ORDER BY col267 ASC;
+
+CREATE VIEW IF NOT EXISTS view30 AS
+    SELECT
+        AE.col15,
+        AE.col158,
+        SG.col87 AS col267,
+        SG.col103 AS col268,
+        col186.col51 AS col51,
+        COALESCE(SUM(AE.col124),0) AS col124
+    FROM table6 AE
+    LEFT JOIN table57 SG ON AE.col158 = SG.id
+    LEFT JOIN table24 col186 ON AE.col158 = col186.col22 AND AE.col15 = col186.col18
+    GROUP BY AE.col15, AE.col158
+    ORDER BY AE.col124 ASC, col267 ASC;
+
+CREATE VIEW IF NOT EXISTS view13 AS
+    SELECT
+        col21,
+        AE.col28,
+        SG.col87 AS col267,
+        B.col36 AS col276,
+        MAX(AE.col91) AS col91,
+        AE.col15 AS col15
+    FROM table6 AE
+    LEFT JOIN table57 SG ON AE.col158=SG.id
+    LEFT JOIN table12 B ON B.id = AE.col21
+    WHERE AE.col136 = "VAL283" OR AE.col136 = "VAL281"
+    GROUP BY AE.col28, AE.col15
+    ORDER BY AE.col91 DESC, AE.col28;
+
+CREATE VIEW IF NOT EXISTS view8 AS
+    SELECT
+        AE.col21,
+        AE.col28,
+        AE.col158 AS col158,
+        SG.col87 AS col267,
+        B.col36 AS col276,
+        AE.col15 AS col15
+    FROM table6 AE
+    LEFT JOIN table57 SG ON AE.col158=SG.id
+    LEFT JOIN table12 B ON B.id = AE.col21
+    GROUP BY AE.col28, AE.col15
+    ORDER BY AE.col28 ASC;
+
+CREATE VIEW IF NOT EXISTS view9 AS
+    SELECT id AS col219, col15, col21, col28, col158, col124 FROM table6 WHERE col136="VAL283";
+
+CREATE VIEW IF NOT EXISTS view7 AS
+    SELECT id AS col219, col15, col21, col28, col158, col124 FROM table6 WHERE col136="VAL281";
+
+CREATE VIEW IF NOT EXISTS view11 AS
+    SELECT id AS col219, col15, col21, col28, col158, col166 FROM table6 WHERE col136="VAL284";

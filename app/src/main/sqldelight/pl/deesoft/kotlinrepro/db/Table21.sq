@@ -1,0 +1,15 @@
+query194:
+INSERT OR REPLACE INTO table21(
+    id,
+    col163,
+    code
+) VALUES (
+    :id,
+    :col163,
+    :code
+);
+
+query88:
+SELECT *
+FROM table21
+WHERE id = :id;

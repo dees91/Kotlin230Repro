@@ -1,0 +1,27 @@
+CREATE VIEW IF NOT EXISTS view33 AS
+    SELECT id,
+        col40,
+        col97,
+        col123,
+        (CASE WHEN JSON_VALID(col20)
+            THEN
+                (CASE
+                    WHEN JSON_EXTRACT(col20, '$.data.col103') THEN JSON_EXTRACT(col20, '$.data.col103')
+                    WHEN JSON_EXTRACT(col20, '$.col195') THEN JSON_EXTRACT(col20, '$.col195')
+                    WHEN col97 = 'VAL273' THEN 999991
+                    WHEN col97 = 'VAL191' THEN 999992
+                    ELSE 999990
+                END )
+            ELSE
+                NULL
+            END
+        ) AS col103,
+        col20,
+        col142,
+        col138
+    FROM table45
+    WHERE (col97 = 'VAL32'
+        OR col97 = 'VAL31'
+        OR col97 = 'VAL221'
+        OR col97 = 'VAL273'
+        OR col97 = 'VAL191');

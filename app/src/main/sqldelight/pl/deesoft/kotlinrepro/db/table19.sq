@@ -1,0 +1,25 @@
+query256:
+UPDATE table19 SET
+    col103 = :col103,
+    col101 = :col101,
+    col88 = :col88,
+    col30 = :col30,
+    col123 = :col123,
+    col162 = :col162,
+    col131 = :col131,
+    col168 = :col168,
+    col167 = :col167
+WHERE id = :id;
+
+query189:
+INSERT INTO table19(id, col101, col88, col103, col30, col123, col162, col131, col168, col167)
+    SELECT :id, :col101, :col88, :col103, :col30, :col123, :col162, :col131, :col168, :col167 WHERE (SELECT changes() = 0);
+
+query82:
+SELECT * FROM table19;
+
+query81:
+SELECT id FROM table19;
+
+query230:
+DELETE FROM table19 WHERE id = :id;

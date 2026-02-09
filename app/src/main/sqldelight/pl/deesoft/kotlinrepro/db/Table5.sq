@@ -1,0 +1,90 @@
+query257:
+UPDATE table5 SET
+    col26=?2,
+    col155=?3
+WHERE id=?1;
+
+query262:
+UPDATE table5 SET
+    col62=?2,
+    col155=?3
+WHERE id=?1;
+
+query73:
+SELECT * FROM table5;
+
+query7:
+SELECT count(*) FROM table5 WHERE col155=="VAL1";
+
+query55:
+SELECT COUNT(id) FROM view12 WHERE col171 != 'VAL15' AND col26 IS NULL;
+
+query71:
+SELECT * FROM view14 WHERE id = ?1;
+
+query72:
+SELECT * FROM table5 WHERE id = ?1;
+
+query68:
+SELECT * FROM table8 WHERE col15=?1;
+
+query56:
+SELECT * FROM view30 WHERE col15=?1 ORDER BY col268;
+
+query70:
+SELECT * FROM table10 ORDER BY col7 DESC, id ASC;
+
+query54:
+SELECT *
+FROM view5
+WHERE col150 = :col150
+AND (col30 IS NULL
+    OR col30 > (
+        SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+        FROM table43
+        )
+    )
+ORDER BY col103 ASC, col78 DESC;
+
+query235:
+    SELECT *
+    FROM view5
+    WHERE
+        col150 = :col150
+        AND (col30 IS NULL
+            OR col30 > (
+                SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+                FROM table43
+                )
+            )
+        AND (
+            CAST(col103 AS TEXT) LIKE '%'||:query||'%' OR
+            col101 LIKE '%'||:query||'%'
+        )
+    ORDER BY col103 ASC, col78 DESC;
+
+query135:
+    SELECT
+        COALESCE((SELECT SUM(col124) FROM table6 WHERE col15 = A.id AND
+        col158 NOT IN (SELECT col22 FROM table24 WHERE col24 = A.col24)),0) AS col124
+    FROM table5 A
+    WHERE A.id = :col15;
+
+
+query69:
+SELECT col155 FROM table5 WHERE id = :col15;
+
+query252:
+UPDATE table5 SET col155 = :col155 WHERE id = :col15;
+
+query101:
+SELECT * FROM table23;
+
+query13:
+SELECT COUNT(*)
+FROM table6
+WHERE
+    col136 = 'VAL284'
+    AND col108 = 0
+    AND col91 >= :col271
+;

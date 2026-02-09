@@ -1,0 +1,57 @@
+query264:
+UPDATE table38 SET
+    col127 = :col127,
+    col140 = :col140,
+    col128 = :col128,
+    col141 = :col141,
+    col129 = :col129,
+    col147 = :col147,
+    col2 = :col2,
+    col132 = :col132,
+    col70 = :col70,
+    col96 = :col96,
+    col44 = :col44,
+    col32 = :col32
+WHERE id = :id;
+
+query204:
+INSERT INTO table38(
+    id,
+    col127,
+    col140,
+    col128,
+    col141,
+    col129,
+    col147,
+    col2,
+    col132,
+    col70,
+    col96,
+    col44,
+    col32
+)
+SELECT
+    :id,
+    :col127,
+    :col140,
+    :col128,
+    :col141,
+    :col129,
+    :col147,
+    :col2,
+    :col132,
+    :col70,
+    :col96,
+    :col44,
+    :col32
+WHERE (SELECT changes() = 0);
+
+query265:
+UPDATE table39 SET
+    col94 = :col94,
+    col124 = :col124
+WHERE col95 = :col95 AND col21 = :col21;
+
+query203:
+INSERT INTO table39(col95, col94, col21, col124)
+    SELECT :col95, :col94, :col21, :col124 WHERE (SELECT changes() = 0);

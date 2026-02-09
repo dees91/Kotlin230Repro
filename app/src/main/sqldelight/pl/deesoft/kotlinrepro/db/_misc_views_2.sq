@@ -1,0 +1,34 @@
+CREATE VIEW IF NOT EXISTS view24 AS
+    SELECT
+        L.id,
+        L.col127,
+        L.col141,
+        L.col147,
+        L.col129,
+        L.col2,
+        L.col132,
+        L.col70,
+        L.col96,
+        L.col44,
+        L.col32,
+        S.id AS col262,
+        S.col101 AS col263,
+        S.col103 AS col264,
+        S.col171 AS col265,
+        R.id AS col253,
+        R.col101 AS col254,
+        R.col103 AS col255,
+        R.col171 AS col256
+    FROM
+        table38 L
+    JOIN table41 S ON S.id=L.col140
+    JOIN table41 R ON R.id=L.col128;
+
+CREATE VIEW IF NOT EXISTS view16 AS
+    SELECT
+        L.col95,
+        L.col94,
+        B.col28,
+        L.col124
+        FROM table39 L
+        LEFT JOIN table12 B ON B.id = L.col21;

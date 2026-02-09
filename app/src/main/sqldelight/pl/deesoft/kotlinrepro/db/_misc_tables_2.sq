@@ -1,0 +1,54 @@
+import pl.deesoft.kotlinrepro.db.Type7;
+import pl.deesoft.kotlinrepro.db.Type8;
+import pl.deesoft.kotlinrepro.db.Type6;
+import java.time.ZonedDateTime;
+
+CREATE TABLE table27(
+    id TEXT NOT NULL,
+    col101 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col176 TEXT AS ZonedDateTime NOT NULL,
+    col6 TEXT AS ZonedDateTime NOT NULL,
+    col154 TEXT AS Type7 NOT NULL,
+    PRIMARY KEY (id, col24)
+);
+
+CREATE INDEX idx73 ON table27(id);
+CREATE INDEX idx72 ON table27(col24);
+
+CREATE TABLE table34(
+    col55 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col102 INTEGER DEFAULT NULL,
+    PRIMARY KEY (col55, col24)
+);
+
+CREATE INDEX idx71 ON table34(col55);
+CREATE INDEX idx70 ON table34(col24);
+
+CREATE TABLE table33(
+    id TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col66 TEXT AS Type6 NOT NULL,
+    PRIMARY KEY (id, col24)
+);
+
+CREATE INDEX idx69 ON table33(id);
+CREATE INDEX idx68 ON table33(col24);
+
+CREATE TABLE table28(
+    col54 TEXT NOT NULL,
+    col55 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col21 TEXT NOT NULL,
+    col99 TEXT AS Type8 DEFAULT NULL,
+    col115 TEXT AS Type8 DEFAULT NULL,
+    col42 TEXT NOT NULL,
+    PRIMARY KEY (col55, col24, col21)
+);
+
+CREATE INDEX idx60 ON table28(col55);
+CREATE INDEX idx58 ON table28(col24);
+CREATE INDEX idx62 ON table28(col99);
+CREATE INDEX idx63 ON table28(col115);
+CREATE INDEX idx59 ON table28(col42);

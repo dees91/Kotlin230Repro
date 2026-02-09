@@ -1,0 +1,55 @@
+query10:
+SELECT count(*)
+FROM table27
+WHERE col24 = :col24;
+
+query109:
+SELECT *
+FROM table27
+WHERE col24 = :col24
+ORDER BY col176 DESC, CAST(id AS INTEGER) DESC
+LIMIT :limit OFFSET :offset;
+
+query102:
+SELECT *
+FROM table27
+WHERE
+    id = :id
+    AND col24 = :col24;
+
+query281:
+INSERT OR REPLACE INTO table27(
+    id,
+    col101,
+    col24,
+    col176,
+    col6,
+    col154
+) VALUES (
+    :id,
+    :col101,
+    :col24,
+    :col176,
+    :col6,
+    :col154
+);
+
+query19:
+DELETE FROM table27 WHERE col24 = :col24;
+
+query150:
+SELECT *
+FROM table34
+WHERE
+    col55 = :col55
+    AND col24 = :col24
+LIMIT 1;
+
+query290:
+INSERT INTO table34(col55, col24, col102)
+VALUES (:col55, :col24, :col102)
+ON CONFLICT(col55, col24) DO UPDATE SET
+    col102 = excluded.col102;
+
+query20:
+DELETE FROM table34 WHERE col24 = :col24;

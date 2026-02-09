@@ -1,0 +1,21 @@
+CREATE TABLE table23(
+ id TEXT NOT NULL PRIMARY KEY,
+ col22 TEXT NOT NULL,
+ table23 INTEGER NOT NULL DEFAULT 0,
+ col174 TEXT NOT NULL,
+ col24 TEXT NOT NULL,
+     CONSTRAINT cstr7
+         FOREIGN KEY (col24)
+         REFERENCES table19(id)
+         ON DELETE NO ACTION
+         ON UPDATE NO ACTION,
+     CONSTRAINT cstr22
+         FOREIGN KEY (col22)
+         REFERENCES table57(id)
+         ON DELETE NO ACTION
+         ON UPDATE NO ACTION
+ );
+
+CREATE INDEX idx43 ON table24(id);
+CREATE INDEX idx42 ON table24(col24);
+CREATE INDEX idx44 ON table24(col22);

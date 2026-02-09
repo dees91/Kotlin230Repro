@@ -1,0 +1,79 @@
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+CREATE TABLE IF NOT EXISTS table12 (
+    id TEXT NOT NULL PRIMARY KEY,
+    col28 INTEGER NOT NULL,
+    col83 TEXT DEFAULT NULL,
+    col87 TEXT DEFAULT NULL,
+    col158 TEXT NOT NULL,
+    col65 TEXT NOT NULL,
+    col46 TEXT DEFAULT NULL,
+    col36 TEXT DEFAULT NULL,
+    col91 TEXT AS ZonedDateTime DEFAULT NULL,
+    col135 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    col64 TEXT DEFAULT NULL,
+    col25 INTEGER DEFAULT 0 NOT NULL,
+    col122 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    col5 INTEGER DEFAULT NULL,
+    CONSTRAINT cstr22
+        FOREIGN KEY (col158)
+        REFERENCES table57(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr11
+        FOREIGN KEY (col65)
+        REFERENCES table36(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr9
+        FOREIGN KEY (col46)
+        REFERENCES table13(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr10
+        FOREIGN KEY (col64)
+        REFERENCES table14(id)
+        ON DELETE SET DEFAULT
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr1
+        FOREIGN KEY (col5)
+        REFERENCES table3(id)
+        ON DELETE SET DEFAULT
+        ON UPDATE CASCADE
+);
+
+CREATE INDEX idx30 ON table12(id);
+CREATE INDEX idx33 ON table12(col83);
+CREATE INDEX idx34 ON table12(col28);
+CREATE INDEX idx35 ON table12(col158);
+CREATE INDEX idx32 ON table12(col65);
+CREATE INDEX idx29 ON table12(col64);
+CREATE INDEX idx31 ON table12(col122);
+CREATE INDEX idx28 ON table12(col5);
+
+CREATE TABLE table13(
+    id TEXT NOT NULL PRIMARY KEY,
+    col69 TEXT DEFAULT NULL,
+    col87 TEXT DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS table17 (
+    id INTEGER NOT NULL PRIMARY KEY,
+    col21 TEXT NOT NULL,
+    col134 TEXT NOT NULL,
+    col7 INTEGER AS Boolean NOT NULL,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr18
+        FOREIGN KEY (col134)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx25 ON table17(col21);
+CREATE INDEX IF NOT EXISTS idx26 ON table17(col134);

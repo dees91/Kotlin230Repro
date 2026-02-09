@@ -1,0 +1,34 @@
+DROP VIEW IF EXISTS view14;
+
+CREATE VIEW IF NOT EXISTS view14 AS
+    SELECT
+        I.id,
+        I.col101,
+        I.col103,
+        I.col152,
+        I.col155 AS col266,
+        col192.col87 AS col275,
+        col192.col69 AS col274,
+        B.col101 AS col207,
+        I.col153,
+        I.col26,
+        I.col62,
+        col190.col149,
+        col190.col125,
+        col190.col93
+    FROM table5 I
+    INNER JOIN table10 col192 ON I.col172=col192.id
+    INNER JOIN table9 col190 ON I.col155=col190.id
+    LEFT JOIN table19 B ON I.col24=B.id;
+
+INSERT OR IGNORE INTO table9(id,col125,col93,col149) VALUES
+    ('VAL1',0,0,0),
+    ('VAL14',1,0,10000),
+    ('VAL17',1,0,10000),
+    ('VAL13',1,0,20000),
+    ('VAL6',1,0,30000),
+    ('VAL121',0,1,40000),
+    ('VAL201',0,1,50000),
+    ('VAL122',0,1,60000),
+    ('VAL68',0,1,70000),
+    ('VAL16',1,0,100000);

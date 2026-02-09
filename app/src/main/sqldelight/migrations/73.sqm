@@ -1,0 +1,42 @@
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view2;
+
+    CREATE VIEW IF NOT EXISTS view2 AS
+        SELECT
+            mo.id,
+            mo.col106,
+            mo.col124,
+            mo.col27,
+            mo.col45,
+            mo.col38,
+            mo.col173,
+            mo.col39,
+            mo.col31,
+            p.col36,
+            p.id AS col21,
+            p.col28 AS col203,
+            p.col87 AS col202,
+            p.col122 AS col239,
+            mc.col87 AS col231,
+            c.col87 AS col267,
+            mo.col24 AS col24,
+            s.col103 AS col208,
+            s.col101 AS col207,
+            u.col87 AS col226,
+            u.col69 AS col225,
+            p.col25,
+            ps.col87 AS col216,
+            psucc.col159,
+            u.col1 AS col224
+        FROM table1 mo
+        JOIN table19 s ON mo.col24 = s.id
+        JOIN table12 p ON mo.col21 = p.id
+        LEFT JOIN table14 u ON p.col64 = u.id
+        LEFT JOIN table57 c ON p.col158 = c.id
+        LEFT JOIN table36 mc ON c.col65 = mc.id
+        LEFT JOIN table13 ps ON p.col46 = ps.id
+        LEFT JOIN table17 psucc ON p.id = psucc.col21 AND psucc.col7 = 1;
+
+COMMIT;
+

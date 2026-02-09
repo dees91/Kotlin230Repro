@@ -1,0 +1,144 @@
+query291:
+INSERT INTO table53(id, col69)
+VALUES (:id, :col69)
+ON CONFLICT(id) DO UPDATE SET
+    col69 = excluded.col69;
+
+query292:
+INSERT INTO table49(
+    id,
+    col127,
+    col140,
+    col128,
+    col71,
+    col141,
+    col129,
+    col72,
+    col147,
+    col113,
+    col170,
+    col29,
+    col2,
+    col132,
+    col70,
+    col104,
+    col34,
+    col146,
+    col44
+)
+VALUES (
+    :id,
+    :col127,
+    :col140,
+    :col128,
+    :col71,
+    :col141,
+    :col129,
+    :col72,
+    :col147,
+    :col113,
+    :col170,
+    :col29,
+    :col2,
+    :col132,
+    :col70,
+    :col104,
+    :col34,
+    :col146,
+    :col44
+)
+ON CONFLICT(id) DO UPDATE SET
+    col127 = excluded.col127,
+    col140 = excluded.col140,
+    col128 = excluded.col128,
+    col71 = excluded.col71,
+    col141 = excluded.col141,
+    col129 = excluded.col129,
+    col72 = excluded.col72,
+    col147 = excluded.col147,
+    col113 = excluded.col113,
+    col170 = excluded.col170,
+    col29 = excluded.col29,
+    col2 = excluded.col2,
+    col132 = excluded.col132,
+    col70 = excluded.col70,
+    col104 = excluded.col104,
+    col34 = excluded.col34,
+    col146 = excluded.col146,
+    col44 = excluded.col44;
+
+query293:
+INSERT INTO table50(col143, col94, col21, col124)
+VALUES (:col143, :col94, :col21, :col124)
+ON CONFLICT(col143, col21) DO UPDATE SET
+    col94 = excluded.col94,
+    col124 = excluded.col124;
+
+query294:
+INSERT INTO table61(
+    col147,
+    id,
+    col127,
+    col140,
+    col128,
+    col71,
+    col141,
+    col129,
+    col72,
+    col113,
+    col170,
+    col29,
+    col2,
+    col132,
+    col70,
+    col104,
+    col34,
+    col146,
+    col44
+)
+VALUES (
+    :col147,
+    :id,
+    :col127,
+    :col140,
+    :col128,
+    :col71,
+    :col141,
+    :col129,
+    :col72,
+    :col113,
+    :col170,
+    :col29,
+    :col2,
+    :col132,
+    :col70,
+    :col104,
+    :col34,
+    :col146,
+    :col44
+)
+ON CONFLICT(col147) DO UPDATE SET
+    col127 = excluded.col127,
+    col140 = excluded.col140,
+    col128 = excluded.col128,
+    col71 = excluded.col71,
+    col141 = excluded.col141,
+    col129 = excluded.col129,
+    col72 = excluded.col72,
+    col113 = excluded.col113,
+    col170 = excluded.col170,
+    col29 = excluded.col29,
+    col2 = excluded.col2,
+    col132 = excluded.col132,
+    col70 = excluded.col70,
+    col104 = excluded.col104,
+    col34 = excluded.col34,
+    col146 = excluded.col146,
+    col44 = excluded.col44;
+
+query295:
+INSERT INTO table62(col147, col94, col21, col124)
+VALUES (:col147, :col94, :col21, :col124)
+ON CONFLICT(col147, col21) DO UPDATE SET
+    col94 = excluded.col94,
+    col124 = excluded.col124;

@@ -1,0 +1,40 @@
+query242:
+SELECT * FROM view38 ORDER BY col62 DESC;
+
+query14:
+SELECT COUNT(id) FROM view38;
+
+query168:
+SELECT col103 FROM table5 WHERE id = :col15 LIMIT 1;
+
+query165:
+SELECT col21 FROM table6 WHERE col15 = :col15;
+
+query169:
+SELECT col21, col124 FROM table6 WHERE col15 = :col15;
+
+query223:
+SELECT col7 FROM table10 WHERE col69 = 'VAL15' LIMIT 1;
+
+query193:
+INSERT OR IGNORE INTO
+    table6(id, col166, col15,col21,col158,col65,col28,col83,col124,col136,col137,col108,col91)
+SELECT
+    :id,
+    :col166,
+    :col15,
+    :col21,
+    B.col158,
+    B.col65,
+    B.col28,
+    B.col83,
+    :col124,
+    :col136,
+    :col137,
+    :col108,
+    :col91
+FROM
+    table12 B
+WHERE
+    B.id = :col21
+LIMIT 1;

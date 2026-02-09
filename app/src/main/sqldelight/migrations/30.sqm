@@ -1,0 +1,34 @@
+import kotlin.Boolean;
+
+PRAGMA foreign_keys=off;
+BEGIN TRANSACTION;
+
+ALTER TABLE table45 ADD col138 INTEGER AS Boolean DEFAULT 0;
+
+DROP VIEW IF EXISTS view33;
+
+CREATE VIEW IF NOT EXISTS view33 AS
+    SELECT id,
+        col40,
+        col97,
+        col123,
+        (CASE WHEN JSON_VALID(col20)
+            THEN
+                (CASE WHEN JSON_EXTRACT(col20, '$.data.col103')
+                THEN
+                    JSON_EXTRACT(col20, '$.data.col103')
+                ELSE
+                    JSON_EXTRACT(col20, '$.col195')
+                END )
+            ELSE
+                NULL
+            END
+        ) AS col103,
+        col20,
+        col142,
+        col138
+    FROM table45
+    WHERE (col97 = 'VAL32' OR col97 = 'VAL31' OR col20 LIKE '%col113%');
+
+COMMIT;
+PRAGMA foreign_keys=on;

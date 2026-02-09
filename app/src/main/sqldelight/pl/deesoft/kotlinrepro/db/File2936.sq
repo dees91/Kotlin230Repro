@@ -1,0 +1,107 @@
+query85:
+SELECT * FROM table43;
+
+query144:
+SELECT * FROM table42;
+
+query181:
+SELECT
+    CASE
+        WHEN
+            (SELECT col181 FROM table42 WHERE col24 = :col24) IS NOT NULL
+        THEN
+            (SELECT col181 FROM table42 WHERE col24 = :col24)
+
+        WHEN
+            (SELECT col181 FROM table43) IS NOT NULL
+        THEN
+            (SELECT col181 FROM table43)
+
+        ELSE
+            NULL
+    END value
+FROM table43;
+
+query128:
+SELECT
+    CASE
+        WHEN
+            (SELECT col179 FROM table42 WHERE col24 = :col24) IS NOT NULL
+        THEN
+            (SELECT col179 FROM table42 WHERE col24 = :col24)
+
+        WHEN
+            (SELECT col179 FROM table43) IS NOT NULL
+        THEN
+            (SELECT col179 FROM table43)
+
+        ELSE
+            NULL
+    END value
+FROM table43;
+
+query66:
+SELECT
+    CASE
+        WHEN
+            (SELECT col17 FROM table42 WHERE col24 = (SELECT col24 FROM table5 WHERE id = :col15)) IS NOT NULL
+        THEN
+            (SELECT col17 FROM table42 WHERE col24 = (SELECT col24 FROM table5 WHERE id = :col15))
+
+        WHEN
+            (SELECT col17 FROM table43) IS NOT NULL
+        THEN
+            (SELECT col17 FROM table43)
+
+        ELSE
+            NULL
+    END value
+FROM table43;
+
+query62:
+SELECT col13 FROM table43;
+
+query65:
+SELECT col16 FROM table43;
+
+query154:
+SELECT col144 FROM table43;
+
+query53:
+SELECT col12 FROM table43;
+
+query129:
+SELECT col82,
+    col79,
+    col81,
+    col74,
+    col80,
+    col77,
+    col73,
+    col75,
+    col76
+    FROM table43;
+
+query136:
+SELECT col109 FROM table43;
+
+query166:
+SELECT col156 FROM table43;
+
+query167:
+SELECT col157 FROM table43;
+
+query108:
+SELECT
+    col60,
+    col57,
+    col58,
+    col56,
+    col59
+FROM table43;
+
+query137:
+SELECT col110 FROM table43;
+
+query138:
+SELECT col111 FROM table43;

@@ -1,0 +1,8 @@
+CREATE VIEW IF NOT EXISTS view16 AS
+    SELECT
+        L.col95,
+        L.col94,
+        P.col28,
+        L.col124
+        FROM table39 L
+        LEFT JOIN table12 P ON P.id = L.col21;

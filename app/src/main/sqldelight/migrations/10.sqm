@@ -1,0 +1,44 @@
+CREATE VIEW IF NOT EXISTS view6 AS
+    SELECT
+        col15,
+        SUM(col124) AS col272
+    FROM table6
+    GROUP BY col15;
+
+CREATE VIEW IF NOT EXISTS view12 AS
+    SELECT
+        I.id,
+        I.col101,
+        I.col103,
+        I.col26,
+        I.col62,
+        I.col155 AS col154,
+        T.col69 AS col171,
+        T.col87 AS col275,
+        S.col101 AS col206,
+        C.col272,
+        ST.col149,
+        ST.col93
+    FROM table5 I
+    INNER JOIN table10 T ON I.col172=T.id
+    INNER JOIN table19 S ON I.col24=S.id
+    INNER JOIN table9 ST ON I.col155=ST.id
+    LEFT JOIN view6 C ON I.id=C.col15;
+
+DROP VIEW IF EXISTS view5;
+
+CREATE VIEW IF NOT EXISTS view5 AS
+    SELECT
+        S.id AS col24,
+        S.col160 AS col160,
+        S.col101 AS col101,
+        S.col103 AS col103,
+        S.col123 AS col123,
+        S.col150 AS col150,
+        S.col78 AS col78,
+        S.col30 AS col30,
+        (SELECT COALESCE(COUNT(I.id), 0) FROM table5 I WHERE I.col24=S.id AND I.col155 IN ('VAL121', 'VAL201', 'VAL122', 'VAL68', 'VAL1', 'VAL14', 'VAL17')) AS col194,
+        (SELECT TOTAL(EC.table23) FROM table24 EC WHERE EC.col24=S.id) AS col222
+    FROM view26 S
+    WHERE col7 = 1 AND (col30 IS NULL OR (col30 BETWEEN date('now','-3 months') AND date('now','+3 months')))
+    ORDER BY S.col160 ASC, S.col103 ASC, col222 DESC;

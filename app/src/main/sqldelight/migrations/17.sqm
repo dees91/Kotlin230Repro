@@ -1,0 +1,20 @@
+CREATE TABLE table50(
+    id TEXT NOT NULL PRIMARY KEY,
+    col143 TEXT NOT NULL,
+    col94 INTEGER NOT NULL,
+    col21 TEXT NOT NULL,
+    col124 INTEGER NOT NULL,
+    CONSTRAINT cstr20
+        FOREIGN KEY (col143)
+        REFERENCES table49(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx97 ON table50(id);
+CREATE INDEX idx98 ON table50(col143);

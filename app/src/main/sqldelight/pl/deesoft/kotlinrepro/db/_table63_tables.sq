@@ -1,0 +1,43 @@
+import pl.deesoft.kotlinrepro.db.Type1;
+import kotlin.Boolean;
+
+CREATE TABLE table40(
+    id TEXT NOT NULL UNIQUE PRIMARY KEY,
+    col87 TEXT DEFAULT NULL,
+    col69 TEXT DEFAULT NULL,
+    col33 INTEGER AS Boolean NOT NULL DEFAULT 0,
+    col149 INTEGER NOT NULL DEFAULT 0,
+    col7 INTEGER AS Boolean NOT NULL DEFAULT 1,
+    col47 TEXT DEFAULT NULL
+);
+
+CREATE INDEX idx88 ON table40(id);
+
+CREATE TABLE table63(
+    id TEXT PRIMARY KEY NOT NULL,
+    col124 INTEGER NOT NULL,
+    col31 TEXT DEFAULT NULL,
+    col24 TEXT NOT NULL,
+    col21 TEXT NOT NULL,
+    col100 TEXT NOT NULL,
+    col37 TEXT AS Type1 NOT NULL,
+    col98 TEXT AS Type1 DEFAULT NULL,
+    col132 TEXT AS Type1 DEFAULT NULL,
+    CONSTRAINT cstr7
+        FOREIGN KEY (col24)
+        REFERENCES table19(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr13
+        FOREIGN KEY (col100)
+        REFERENCES table40(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx111 ON table63(id);

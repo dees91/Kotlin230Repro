@@ -1,0 +1,2 @@
+query89:
+SELECT * FROM view16 WHERE col95 = :col143 ORDER BY col94;

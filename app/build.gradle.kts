@@ -44,6 +44,8 @@ sqldelight {
     databases {
         create("AppDatabase") {
             packageName.set("pl.deesoft.kotlinrepro.db")
+            generateAsync = true
+            dialect(libs.sqldelight.dialect)
         }
     }
 }
@@ -54,6 +56,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.sqldelight.android.driver)
     implementation(libs.sqldelight.coroutines.extensions)
+    implementation(libs.sqldelight.async.extensions)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

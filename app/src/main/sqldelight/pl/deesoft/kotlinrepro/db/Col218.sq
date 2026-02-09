@@ -1,0 +1,10 @@
+query131:
+SELECT id,col166,col15,col21,col136,col137,col124,col91 FROM table6 WHERE
+    col108 = 0
+    AND col164 IS NULL
+ORDER BY col91 ASC LIMIT 48;
+
+query244:
+UPDATE table6 SET
+    col164 = :col240
+WHERE id IN :col220;

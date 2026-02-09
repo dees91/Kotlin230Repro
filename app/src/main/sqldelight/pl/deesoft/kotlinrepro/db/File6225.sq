@@ -1,0 +1,60 @@
+query110:
+SELECT * FROM view20 col185 WHERE
+    col15 = :col15
+    AND col223 != 0
+    AND col185.col49 = 0
+ORDER BY col268 ASC;
+
+query179:
+SELECT SUM(col51)
+FROM table24
+LEFT JOIN table57 SG ON col22 = SG.id
+WHERE col18 = :col15 AND SG.col49 = 0;
+
+query201:
+INSERT OR IGNORE INTO
+    table6(id,col15,col21,col28,col158,col65,col83,col166,col136,col137,col124,col91, col68)
+SELECT
+    :id,
+    :col15,
+    B.id,
+    B.col28,
+    B.col158,
+    B.col65,
+    :col83,
+    :col166,
+    :col136,
+    :col137,
+    :col124,
+    :col91,
+    :col68
+FROM
+    view3 B
+WHERE
+    B.col83 = :col83
+    AND B.col49 = 0
+LIMIT 1;
+
+query192:
+INSERT OR IGNORE INTO
+    table6(id,col15,col21,col28,col158,col65,col83,col166,col136,col137,col124,col91,col68)
+SELECT
+    :id,
+    :col15,
+    B.id,
+    :col28,
+    B.col158,
+    B.col65,
+    B.col83,
+    :col166,
+    :col136,
+    :col137,
+    :col124,
+    :col91,
+    :col68
+FROM
+    view3 B
+WHERE
+    B.col28 = :col28
+    AND B.col49 = 0
+LIMIT 1;

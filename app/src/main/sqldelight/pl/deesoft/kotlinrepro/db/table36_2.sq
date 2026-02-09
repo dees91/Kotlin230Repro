@@ -1,0 +1,84 @@
+query110:
+SELECT * FROM view20 col185 WHERE
+    col15 = :col15
+    AND EXISTS (
+        SELECT col182.id FROM table8 col182 WHERE
+                    col182.col15 = :col15
+                    AND col182.col158 = col185.col158
+                LIMIT 1
+    )
+ORDER BY col268 ASC;
+
+query100:
+SELECT SUM(col51)
+FROM table24
+WHERE col18 = :col15
+    AND EXISTS (
+          SELECT col182.id FROM table8 col182 WHERE
+              col182.col15 = :col15
+              AND col22 IN (SELECT sg.id FROM table57 sg WHERE sg.id = col182.col158)
+          LIMIT 1
+     );
+
+query196:
+INSERT OR IGNORE INTO
+    table6(id,col15,col21,col28,col158,col65,col83,col166,col136,col137,col124,col91,col68)
+SELECT
+    :id,
+    :col15,
+    B.id,
+    B.col28,
+    B.col158,
+    B.col65,
+    :col83,
+    :col166,
+    :col136,
+    :col137,
+    :col124,
+    :col91,
+    :col68
+FROM
+    table12 B
+WHERE
+    B.col83 = :col83
+    AND EXISTS (
+        SELECT col182.id FROM table8 col182 WHERE
+            col182.col15 = :col15
+            AND col182.col158 = B.col158
+        LIMIT 1
+    )
+LIMIT 1;
+
+query190:
+INSERT OR REPLACE INTO
+    table6(id,col15,col21,col28,col158,col65,col83,col166,col136,col137,col124,col91,col68)
+SELECT
+    :id,
+    :col15,
+    B.id,
+    :col28,
+    B.col158,
+    B.col65,
+    B.col83,
+    :col166,
+    :col136,
+    :col137,
+    :col124,
+    :col91,
+    :col68
+FROM
+    table12 B
+WHERE
+    B.col28 = :col28
+    AND (EXISTS (
+        SELECT col182.id FROM table8 col182 WHERE
+            (col182.col15 = :col15
+            AND col182.col158 = B.col158)
+        LIMIT 1
+    ) OR :col28 = 999999999)
+LIMIT 1;
+
+query23:
+SELECT count(B.id) FROM view23 B
+    LEFT JOIN table8 col182 ON col182.col158 = B.col158
+WHERE col182.col15 = :col15 AND (B.col83 = :code OR B.col28 = :code);

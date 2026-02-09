@@ -1,0 +1,99 @@
+
+query75:
+SELECT * FROM table12 WHERE id = ?;
+
+query8:
+SELECT count(*) FROM table12;
+
+query40:
+SELECT col28 FROM table12 WHERE col158 = :col158 AND col46 = :col46;
+
+query84:
+SELECT col28 FROM table12 WHERE col83 = :col83;
+
+
+query116:
+SELECT * FROM view23 WHERE view23.id IN ?;
+
+query80:
+SELECT * FROM table12 WHERE col83 IN ?;
+
+query157:
+SELECT * FROM view23 WHERE id = :id;
+
+query113:
+SELECT * FROM view23 WHERE view23.col83 = :col83 LIMIT 1;
+
+query112:
+SELECT * FROM view23 WHERE view23.col28 = :col28 LIMIT 1;
+
+query114:
+SELECT * FROM view23 WHERE CAST(col28 AS TEXT) LIKE '%'||:col103||'%' ORDER BY id DESC;
+
+query115:
+SELECT *
+FROM view23
+WHERE
+    (:col65 IS NULL OR col65 = :col65)
+    AND (:col158 IS NULL OR col158 = :col158)
+    AND (:col103 IS NULL OR (SUBSTR(CAST((col28 + 1000000000) AS TEXT), 2, 9) LIKE '%'||:col103||'%'))
+    AND col46 IN :col217
+ORDER BY
+    SUBSTR(CAST((col28 + 1000000000) AS TEXT), 8, 9) ASC, col28 ASC
+;
+
+query158:
+SELECT * FROM view36 WHERE col83=:col83 LIMIT 1;
+
+query151:
+SELECT * FROM view36 WHERE CAST(col28 AS TEXT) LIKE :query;
+
+
+query39:
+SELECT * FROM table13;
+
+query97:
+SELECT * FROM table13 WHERE id = :id;
+
+
+query237:
+SELECT * FROM view35 WHERE CAST(col28 AS TEXT) LIKE :query||'%';
+
+
+query83:
+SELECT col28,col36 FROM table12 WHERE col83 = :col83;
+
+
+query142:
+SELECT * FROM view32 WHERE id = :id LIMIT 1;
+
+query141:
+SELECT * FROM view32 WHERE col28 = :col28 LIMIT 1;
+
+query12:
+SELECT count(*)
+FROM view32
+WHERE
+    :col261 IS NULL OR (
+        SUBSTR(CAST((col28 + 1000000000) AS TEXT), 2, 9) LIKE '%'||:col261||'%'
+        OR col87 LIKE '%'||:col261||'%'
+        OR col83 LIKE '%'||:col261||'%'
+        OR col231 LIKE '%'||:col261||'%'
+        OR col267 LIKE '%'||:col261||'%'
+        OR col216 LIKE '%'||:col261||'%'
+    )
+;
+
+query143:
+SELECT * FROM view32
+WHERE
+    :col261 IS NULL OR (
+        SUBSTR(CAST((col28 + 1000000000) AS TEXT), 2, 9) LIKE '%'||:col261||'%'
+        OR col87 LIKE '%'||:col261||'%'
+        OR col83 LIKE '%'||:col261||'%'
+        OR col231 LIKE '%'||:col261||'%'
+        OR col267 LIKE '%'||:col261||'%'
+        OR col216 LIKE '%'||:col261||'%'
+    )
+ORDER BY col28 ASC
+LIMIT :limit OFFSET :offset;

@@ -1,0 +1,16 @@
+query278:
+UPDATE table60 SET
+    col69 = :col69,
+    col84 = :col84,
+    col85 = :col85
+WHERE id = :id;
+
+query221:
+INSERT INTO table60(id, col69, col84, col85)
+    SELECT :id, :col69, :col84, :col85 WHERE (SELECT changes() = 0);
+
+query177:
+SELECT * FROM table60;
+
+query178:
+SELECT id FROM table60;

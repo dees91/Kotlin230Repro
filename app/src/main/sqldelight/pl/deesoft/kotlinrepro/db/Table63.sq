@@ -1,0 +1,43 @@
+query15:
+SELECT count(*) FROM view29 WHERE col150=:col150 AND col132 IS NULL;
+
+query51:
+SELECT * FROM table63;
+
+query182:
+SELECT * FROM table63 WHERE id=?1 LIMIT 1;
+
+query233:
+UPDATE table63 SET col132=?2 WHERE id=?1;
+
+query74:
+SELECT *
+    FROM view40
+    WHERE col150=:col150
+    AND (col30 IS NULL
+        OR col30 > (
+            SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+            FROM table43
+            )
+        )
+    ORDER BY col103 ASC, col78 DESC;
+
+query239:
+    SELECT *
+    FROM view40
+    WHERE
+        col150 = :col150
+        AND (col30 IS NULL
+            OR col30 > (
+                SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+                FROM table43
+                )
+            )
+        AND (
+            CAST(col103 AS TEXT) LIKE '%'||:query||'%' OR
+            col101 LIKE '%'||:query||'%'
+        )
+    ORDER BY col103 ASC, col78 DESC;
+
+query183:
+SELECT * FROM view29 WHERE col150=:col150;

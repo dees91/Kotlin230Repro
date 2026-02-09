@@ -1,0 +1,10 @@
+query284:
+INSERT INTO table17(id, col21, col134, col7)
+VALUES (:id, :col21, :col134, :col7)
+ON CONFLICT(id) DO UPDATE SET
+    col21 = excluded.col21,
+    col134 = excluded.col134,
+    col7 = excluded.col7;
+
+query79:
+SELECT * FROM table17;

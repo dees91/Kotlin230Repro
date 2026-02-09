@@ -1,0 +1,26 @@
+query241:
+SELECT * FROM
+    view12
+WHERE
+    col171 != 'VAL15'
+ORDER BY
+    col149 ASC, col62 DESC, col26 DESC, col152 DESC, col103 DESC;
+
+query243:
+SELECT * FROM
+    table10
+WHERE
+    col7 = 1 AND col139 = 1
+ORDER BY
+    col87 ASC;
+
+query37:
+SELECT * FROM table10;
+
+query240:
+SELECT * FROM
+    view12
+WHERE
+    col171 != 'VAL15'
+AND
+    col154 = "VAL1";

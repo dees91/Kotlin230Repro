@@ -1,0 +1,107 @@
+query195:
+INSERT INTO table6 VALUES :col218;
+
+query212:
+INSERT OR REPLACE INTO table36(
+    id,
+    col87,
+    col103,
+    col7
+) VALUES (
+    :id,
+    :col87,
+    :col103,
+    :col7
+);
+
+query213:
+INSERT OR REPLACE INTO table57(
+    id,
+    col87,
+    col103,
+    col65,
+    col7,
+    col49
+) VALUES (
+    :id,
+    :col87,
+    :col103,
+    :col65,
+    :col7,
+    :col49
+);
+
+query208:
+INSERT OR REPLACE INTO table12(
+    id,
+    col28,
+    col83,
+    col87,
+    col158,
+    col65,
+    col46,
+    col36,
+    col91,
+    col135,
+    col64,
+    col25,
+    col122,
+    col5
+) VALUES (
+    :id,
+    :col28,
+    :col83,
+    :col87,
+    :col158,
+    :col65,
+    :col46,
+    :col36,
+    :col91,
+    :col135,
+    :col64,
+    :col25,
+    :col122,
+    :col5
+);
+
+query209:
+INSERT OR REPLACE INTO table21(
+    id,
+    col163,
+    code
+) VALUES (
+    :id,
+    :col163,
+    :code
+);
+
+query207:
+INSERT OR REPLACE INTO table28(
+    col54,
+    col55,
+    col24,
+    col21,
+    col99,
+    col115,
+    col42
+) VALUES (
+    :col54,
+    :col55,
+    :col24,
+    :col21,
+    :col99,
+    :col115,
+    :col42
+);
+
+query104:
+SELECT * FROM table27
+WHERE id = ? AND col24 = ?;
+
+query107:
+SELECT * FROM table33
+WHERE id = ? AND col24 = ?;
+
+query52:
+SELECT * FROM table28
+WHERE col55 = ? AND col24 = ?;

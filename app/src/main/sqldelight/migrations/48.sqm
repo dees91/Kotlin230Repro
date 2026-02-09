@@ -1,0 +1,26 @@
+BEGIN TRANSACTION;
+
+DROP TRIGGER trigger3;
+
+CREATE TRIGGER trigger3
+    AFTER DELETE ON table6
+    WHEN (SELECT COUNT(*) FROM table5 WHERE id = old.col15 AND col155 = 'VAL1') > 0
+BEGIN
+    INSERT INTO table37(col86,col121,col114)
+        VALUES (
+            'VAL4',
+            3,
+            json_object(
+                'id',old.id,
+                'col166',old.col166,
+                'col18',old.col15,
+                'col21',old.col21,
+                'col136',old.col136,
+                'VAL285',old.col136,
+                'col124',old.col124,
+                'col70',old.col91
+            )
+        );
+END;
+
+COMMIT;

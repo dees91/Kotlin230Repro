@@ -1,0 +1,39 @@
+PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+    CREATE INDEX idx6 ON table6(col136);
+    CREATE INDEX idx7 ON table6(col158);
+
+    DROP VIEW IF EXISTS view4;
+    DROP VIEW IF EXISTS view9;
+    DROP VIEW IF EXISTS view7;
+    DROP VIEW IF EXISTS view11;
+
+    CREATE VIEW IF NOT EXISTS view13 AS
+        SELECT
+            col21,
+            I.col28,
+            C.col87 AS col267,
+            P.col36 AS col276,
+            MAX(I.col91) AS col91,
+            I.col15 AS col15
+        FROM table6 I
+        LEFT JOIN table57 C ON I.col158=C.id
+        LEFT JOIN table12 P ON P.id = I.col21
+        WHERE I.col136 = "VAL283" OR I.col136 = "VAL281"
+        GROUP BY I.col28, I.col15
+        ORDER BY I.col91 DESC, I.col28;
+
+    CREATE VIEW IF NOT EXISTS view9 AS
+        SELECT id AS col257, col15, col21, col28, col158, col124 FROM table6 WHERE col136="VAL283";
+
+    CREATE VIEW IF NOT EXISTS view7 AS
+        SELECT id AS col257, col15, col21, col28, col158, col124 FROM table6 WHERE col136="VAL281";
+
+    CREATE VIEW IF NOT EXISTS view11 AS
+        SELECT id AS col257, col15, col21, col28, col158, col166 FROM table6 WHERE col136="VAL284";
+
+COMMIT;
+
+PRAGMA foreign_keys=on;

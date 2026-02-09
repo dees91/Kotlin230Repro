@@ -1,0 +1,36 @@
+CREATE VIEW IF NOT EXISTS view40 AS
+    SELECT
+        b.id,
+        b.col101,
+        b.col103,
+        sb.col150,
+        sb.col78,
+        b.col30,
+        sb.col160
+    FROM table19 b
+    JOIN table54 sb ON b.id=sb.col24
+    WHERE col7 = 1;
+
+CREATE VIEW IF NOT EXISTS view29 AS
+    SELECT
+        W.id,
+        W.col124,
+        W.col31,
+        W.col37,
+        W.col98,
+        W.col132,
+        BR.col101 AS col207,
+        BR.col103 AS col208,
+        BR.col78 AS col78,
+        M.col87 AS col247,
+        M.col47 AS col245,
+        M.col69 AS col246,
+        B.col28 AS col203,
+        G.col87 AS col231,
+        B.col36 AS col36,
+        BR.col150 AS col150
+    FROM table63 W
+    LEFT JOIN view40 BR ON W.col24=BR.id
+    LEFT JOIN table12 B ON B.id = W.col21
+    LEFT JOIN table36 G ON B.col65=G.id
+    LEFT JOIN table40 M ON W.col100=M.id;

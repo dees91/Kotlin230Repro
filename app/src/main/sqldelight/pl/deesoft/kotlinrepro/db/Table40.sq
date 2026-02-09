@@ -1,0 +1,8 @@
+query33:
+SELECT * FROM table40 WHERE (col7 = 1 OR id = :col221) ORDER BY col149;
+
+query32:
+SELECT * FROM table40 WHERE col7 = 1 ORDER BY col149;
+
+query130:
+SELECT * FROM table40 WHERE id=?1;

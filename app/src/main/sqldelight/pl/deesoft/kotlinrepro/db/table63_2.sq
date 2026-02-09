@@ -1,0 +1,35 @@
+query280:
+UPDATE table63 SET
+    col124 = :col124,
+    col31 = :col31,
+    col24 = :col24,
+    col21 = :col21,
+    col100 = :col100,
+    col37 = :col37,
+    col98 = :col98,
+    col132 = :col132
+WHERE id = :id;
+
+query222:
+INSERT INTO table63(
+    id,
+    col124,
+    col31,
+    col24,
+    col21,
+    col100,
+    col37,
+    col98,
+    col132
+)
+SELECT
+    :id,
+    :col124,
+    :col31,
+    :col24,
+    :col21,
+    :col100,
+    :col37,
+    :col98,
+    :col132
+WHERE (SELECT changes() = 0);

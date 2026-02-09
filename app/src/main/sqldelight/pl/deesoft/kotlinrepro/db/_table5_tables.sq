@@ -1,0 +1,158 @@
+import pl.deesoft.kotlinrepro.db.Type1;
+import pl.deesoft.kotlinrepro.db.Type2;
+import pl.deesoft.kotlinrepro.db.Type3;
+import kotlin.Boolean;
+import java.time.ZonedDateTime;
+
+
+CREATE TABLE table10(
+    id INTEGER NOT NULL PRIMARY KEY,
+    col69 TEXT AS Type3 NOT NULL,
+    col87 TEXT NOT NULL,
+    col7 INTEGER AS Boolean NOT NULL DEFAULT 1,
+    col139 INTEGER AS Boolean NOT NULL DEFAULT 1
+);
+
+CREATE INDEX idx23 ON table10(id);
+
+
+CREATE TABLE table9(
+    id TEXT AS Type2 NOT NULL PRIMARY KEY,
+    col125 INTEGER AS Boolean NOT NULL DEFAULT 0,
+    col93 INTEGER AS Boolean NOT NULL DEFAULT 0,
+    col149 INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE INDEX idx22 ON table9(id);
+
+INSERT OR IGNORE INTO table9(id,col125,col93,col149) VALUES
+    ('VAL1',0,0,0),
+    ('VAL14',1,0,10000),
+    ('VAL17',1,0,10000),
+    ('VAL13',1,0,20000),
+    ('VAL6',1,0,30000),
+    ('VAL16',1,0,100000);
+
+CREATE TABLE table5(
+    id TEXT NOT NULL UNIQUE PRIMARY KEY,
+    col101 TEXT NOT NULL,
+    col155 TEXT AS Type2 NOT NULL DEFAULT "VAL16",
+    col172 INTEGER NOT NULL,
+    col103 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col152 TEXT AS ZonedDateTime DEFAULT NULL,
+    col62 TEXT AS Type1 DEFAULT NULL,
+    col26 TEXT AS Type1 DEFAULT NULL,
+    col153 TEXT AS Type1 DEFAULT NULL,
+    col148 INTEGER DEFAULT 0 NOT NULL,
+    CONSTRAINT cstr21
+        FOREIGN KEY (col155)
+        REFERENCES table9(id)
+        ON DELETE SET DEFAULT
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr7
+        FOREIGN KEY (col24)
+        REFERENCES table19(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr27
+        FOREIGN KEY (col172)
+        REFERENCES table10(id)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx16 ON table5(id);
+CREATE INDEX idx106 ON table5(col172);
+CREATE INDEX idx36 ON table5(col24);
+
+CREATE TABLE table8(
+    id TEXT NOT NULL UNIQUE PRIMARY KEY,
+    col15 TEXT NOT NULL,
+    col65 TEXT DEFAULT NULL,
+    col158 TEXT DEFAULT NULL,
+    col21 TEXT DEFAULT NULL,
+    UNIQUE (col15, col65, col158, col21),
+    CHECK(
+        (col65 IS NOT NULL AND col158 IS NULL AND col21 IS NULL)
+        OR (col65 IS NULL AND col158 IS NOT NULL AND col21 IS NULL)
+        OR (col65 IS NULL AND col158 IS NULL AND col21 IS NOT NULL)
+    ),
+    CONSTRAINT cstr2
+        FOREIGN KEY (col15)
+        REFERENCES table5(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr11
+        FOREIGN KEY (col65)
+        REFERENCES table36(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr22
+        FOREIGN KEY (col158)
+        REFERENCES table57(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE INDEX idx20 ON table8(id);
+CREATE INDEX idx17 ON table8(col15);
+CREATE INDEX idx19 ON table8(col65);
+CREATE INDEX idx21 ON table8(col158);
+CREATE INDEX idx18 ON table8(col21);
+
+CREATE TABLE table24(
+ id TEXT NOT NULL PRIMARY KEY,
+ col18 TEXT NOT NULL,
+ col22 TEXT NOT NULL,
+ col51 INTEGER NOT NULL DEFAULT 0,
+ col52 TEXT AS ZonedDateTime NOT NULL,
+ col24 TEXT NOT NULL,
+     CONSTRAINT cstr7
+         FOREIGN KEY (col24)
+         REFERENCES table19(id)
+         ON DELETE CASCADE
+         ON UPDATE NO ACTION,
+     CONSTRAINT cstr3
+         FOREIGN KEY (col18)
+         REFERENCES table5(id)
+         ON DELETE CASCADE
+         ON UPDATE NO ACTION,
+     CONSTRAINT cstr22
+         FOREIGN KEY (col22)
+         REFERENCES table57(id)
+         ON DELETE NO ACTION
+         ON UPDATE NO ACTION
+ );
+
+CREATE INDEX idx46 ON table24(id);
+CREATE INDEX idx45 ON table24(col24);
+CREATE INDEX idx47 ON table24(col22);
+CREATE INDEX idx51 ON table24(col18);
+
+CREATE TABLE table23(
+ id TEXT NOT NULL PRIMARY KEY,
+ col22 TEXT NOT NULL,
+ col51 INTEGER NOT NULL DEFAULT 0,
+ col174 TEXT AS ZonedDateTime NOT NULL,
+ col24 TEXT NOT NULL,
+     CONSTRAINT cstr7
+         FOREIGN KEY (col24)
+         REFERENCES table19(id)
+         ON DELETE CASCADE
+         ON UPDATE NO ACTION,
+     CONSTRAINT cstr22
+         FOREIGN KEY (col22)
+         REFERENCES table57(id)
+         ON DELETE NO ACTION
+         ON UPDATE NO ACTION
+ );
+
+CREATE INDEX idx40 ON table23(id);
+CREATE INDEX idx39 ON table23(col24);
+CREATE INDEX idx41 ON table23(col22);

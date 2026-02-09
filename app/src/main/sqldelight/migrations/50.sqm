@@ -1,0 +1,214 @@
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+    CREATE TABLE table4(
+            id INTEGER PRIMARY KEY NOT NULL,
+            col69 TEXT NOT NULL
+        );
+
+    CREATE TABLE table3(
+        id INTEGER PRIMARY KEY NOT NULL,
+        col4 INTEGER NOT NULL,
+        col69 TEXT NOT NULL,
+        col8 TEXT DEFAULT NULL
+    );
+
+    CREATE INDEX idx14 ON table3(id);
+    CREATE INDEX idx15 ON table3(col69);
+    CREATE INDEX idx13 ON table4(col69);
+
+    CREATE TABLE table1(
+        id INTEGER PRIMARY KEY NOT NULL,
+        col106 TEXT NOT NULL,
+        col21 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col124 INTEGER NOT NULL,
+        col27 INTEGER AS Boolean NOT NULL DEFAULT 0,
+        col45 TEXT AS ZonedDateTime NOT NULL,
+        col38 TEXT AS ZonedDateTime NOT NULL,
+        col173 TEXT AS ZonedDateTime DEFAULT NULL,
+        col39 TEXT NOT NULL,
+        col31 TEXT DEFAULT NULL,
+        CONSTRAINT cstr4
+            FOREIGN KEY (col21)
+            REFERENCES table12(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION,
+        CONSTRAINT cstr7
+            FOREIGN KEY (col24)
+            REFERENCES table19(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    );
+
+    CREATE INDEX idx12 ON table1(id);
+
+    CREATE TABLE table2(
+        col3 INTEGER PRIMARY KEY NOT NULL,
+        col102 INTEGER DEFAULT NULL
+    );
+
+    CREATE INDEX idx11 ON table2(col3);
+
+    ALTER TABLE table43 ADD COLUMN col73 INTEGER AS Boolean DEFAULT 0 NOT NULL;
+
+    CREATE TABLE table14(
+        id TEXT NOT NULL PRIMARY KEY,
+        col87 TEXT NOT NULL DEFAULT "",
+        col69 TEXT NOT NULL DEFAULT ""
+    );
+
+    CREATE INDEX idx74 ON table14(id);
+    CREATE INDEX idx76 ON table14(col87);
+    CREATE INDEX idx75 ON table14(col69);
+
+    DROP INDEX IF EXISTS idx30;
+    DROP INDEX IF EXISTS idx33;
+    DROP INDEX IF EXISTS idx34;
+    DROP INDEX IF EXISTS idx35;
+    DROP INDEX IF EXISTS idx32;
+
+    CREATE TABLE IF NOT EXISTS table18 (
+        id TEXT NOT NULL PRIMARY KEY,
+        col28 INTEGER NOT NULL,
+        col83 TEXT DEFAULT NULL,
+        col87 TEXT DEFAULT NULL,
+        col158 TEXT NOT NULL,
+        col65 TEXT NOT NULL,
+        col46 TEXT DEFAULT NULL,
+        col36 TEXT DEFAULT NULL,
+        col91 TEXT AS ZonedDateTime DEFAULT NULL,
+        col135 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+        col64 TEXT DEFAULT NULL,
+        col25 INTEGER DEFAULT 0 NOT NULL,
+        col122 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+        col107 INTEGER DEFAULT 0 NOT NULL,
+        col5 INTEGER DEFAULT NULL,
+        CONSTRAINT cstr22
+            FOREIGN KEY (col158)
+            REFERENCES table57(id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE,
+        CONSTRAINT cstr11
+            FOREIGN KEY (col65)
+            REFERENCES table36(id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE,
+        CONSTRAINT cstr9
+            FOREIGN KEY (col46)
+            REFERENCES table13(id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE,
+        CONSTRAINT cstr10
+            FOREIGN KEY (col64)
+            REFERENCES table14(id)
+            ON DELETE SET DEFAULT
+            ON UPDATE CASCADE,
+        CONSTRAINT cstr1
+            FOREIGN KEY (col5)
+            REFERENCES table3(id)
+            ON DELETE SET DEFAULT
+            ON UPDATE CASCADE
+    );
+
+    CREATE INDEX idx30 ON table18(id);
+    CREATE INDEX idx33 ON table18(col83);
+    CREATE INDEX idx34 ON table18(col28);
+    CREATE INDEX idx35 ON table18(col158);
+    CREATE INDEX idx32 ON table18(col65);
+    CREATE INDEX idx29 ON table18(col64);
+    CREATE INDEX idx31 ON table18(col122);
+    CREATE INDEX idx28 ON table18(col5);
+
+    INSERT INTO table18(id, col28, col83, col87, col158, col65, col46, col36, col91, col135)
+        SELECT id, col28, col83, col87, col158, col65, col46, col36, col91, col135
+        FROM table12;
+
+    DROP TABLE table12;
+
+    ALTER TABLE table18 RENAME TO table12;
+
+    CREATE VIEW IF NOT EXISTS view1 AS
+        SELECT
+            mo.id,
+            mo.col106,
+            mo.col124,
+            mo.col27,
+            mo.col45,
+            mo.col38,
+            mo.col173,
+            mo.col39,
+            p.col36,
+            p.col28 AS col203,
+            s.col103 AS col208,
+            s.col101 AS col207,
+            p.col5
+        FROM table1 mo
+        JOIN table19 s ON mo.col24 = s.id
+        JOIN table12 p ON mo.col21 = p.id;
+
+    CREATE VIEW IF NOT EXISTS view2 AS
+        SELECT
+            mo.id,
+            mo.col106,
+            mo.col124,
+            mo.col27,
+            mo.col45,
+            mo.col38,
+            mo.col173,
+            mo.col39,
+            mo.col31,
+            p.col36,
+            p.id AS col21,
+            p.col28 AS col203,
+            p.col87 AS col202,
+            mc.col87 AS col231,
+            c.col87 AS col267,
+            mo.col24 AS col24,
+            s.col103 AS col208,
+            s.col101 AS col207,
+            u.col87 AS col226,
+            u.col69 AS col225,
+            p.col25,
+            ps.col87 AS col216
+        FROM table1 mo
+        JOIN table19 s ON mo.col24 = s.id
+        JOIN table12 p ON mo.col21 = p.id
+        LEFT JOIN table14 u ON p.col64 = u.id
+        LEFT JOIN table57 c ON p.col158 = c.id
+        LEFT JOIN table36 mc ON c.col65 = mc.id
+        LEFT JOIN table13 ps ON p.col46 = ps.id;
+
+    CREATE VIEW IF NOT EXISTS view31 AS
+        SELECT
+            p.id,
+            p.col28,
+            p.col87,
+            p.col83,
+            mc.col87 AS col231,
+            p.col65,
+            p.col158,
+            c.col87 AS col267,
+            p.col36 AS col276,
+            p.col25,
+            u.col87 AS col226,
+            u.col69 AS col225,
+            ps.col87 AS col216,
+            opt.col8 AS col193,
+            optc.col69 AS table4
+        FROM table12 p
+        LEFT JOIN table14 u ON p.col64 = u.id
+        LEFT JOIN table57 c ON p.col158 = c.id
+        LEFT JOIN table36 mc ON p.col65 = mc.id
+        LEFT JOIN table13 ps ON p.col46 = ps.id
+        LEFT JOIN table3 opt ON p.col5 = opt.id
+        LEFT JOIN table4 optc ON opt.col4 = optc.id
+        WHERE p.col122 = 1 AND p.col5 IS NOT NULL;
+
+COMMIT;
+
+PRAGMA foreign_keys=on;

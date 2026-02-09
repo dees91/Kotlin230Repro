@@ -1,0 +1,89 @@
+PRAGMA foreign_keys=off;
+
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view22;
+
+    DROP INDEX idx54;
+    DROP INDEX idx56;
+    DROP INDEX idx53;
+    DROP INDEX idx55;
+    DROP INDEX idx52;
+
+    CREATE TABLE table30(
+        col9 INTEGER NOT NULL,
+        col55 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col61 TEXT AS Type8 DEFAULT NULL,
+        col42 TEXT DEFAULT NULL,
+        col151 TEXT AS ZonedDateTime DEFAULT NULL,
+        col63 TEXT AS ZonedDateTime DEFAULT NULL,
+        PRIMARY KEY (col55, col24, col61, col42, col9)
+    );
+
+    INSERT INTO table30(col9, col55, col24, col61, col42, col151, col63)
+    SELECT col9, col55, col24, col61, col42, col151, col63 FROM table29;
+
+    DROP TABLE table29;
+
+    ALTER TABLE table30 RENAME TO table29;
+
+    CREATE INDEX idx52 ON table29(col9);
+    CREATE INDEX idx55 ON table29(col55);
+    CREATE INDEX idx53 ON table29(col24);
+    CREATE INDEX idx56 ON table29(col61);
+    CREATE INDEX idx54 ON table29(col42);
+
+    ALTER TABLE table27 ADD COLUMN appearancePolicy TEXT AS Type5 NOT NULL DEFAULT "VAL209";
+    ALTER TABLE table33 ADD COLUMN appearancePolicy TEXT AS Type5 NOT NULL DEFAULT "VAL209";
+
+    CREATE VIEW IF NOT EXISTS view22 AS
+    WITH localStatuses AS (
+        SELECT
+            col55,
+            col24,
+            CASE
+                WHEN COUNT(DISTINCT AreaStatus) = 1 AND SUM(CASE WHEN AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL203'
+                WHEN SUM(CASE WHEN AreaStatus = 'VAL231' OR AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL231'
+                ELSE 'VAL184'
+            END AS col241
+        FROM
+            (
+              SELECT
+                    pc.id AS col55,
+                    pc.col24,
+                    CASE
+                        WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NULL THEN 'VAL231'
+                        WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NOT NULL THEN 'VAL203'
+                        ELSE 'VAL184'
+                    END AS AreaStatus
+                FROM
+                    table27 pc
+                LEFT JOIN
+                    table29 pcpa ON pc.id = pcpa.col55 AND pc.col24 = pcpa.col24
+            ) AS col191
+        GROUP BY
+            col55, col24
+    )
+    SELECT
+        pc.id,
+        pc.col101,
+        pc.col24,
+        pc.col176,
+        pc.col6,
+        pc.col154 AS col258,
+        pc.appearancePolicy,
+        ls.col241,
+        CASE
+            WHEN pc.col154 IN ('VAL262', 'VAL90') THEN pc.col154
+            ELSE ls.col241
+        END AS col212
+    FROM
+        table27 pc
+    INNER JOIN localStatuses ls ON pc.id = ls.col55 AND pc.col24 = ls.col24
+    ORDER BY
+        pc.col176 DESC, CAST(pc.id AS INTEGER) DESC;
+
+COMMIT;
+
+PRAGMA foreign_keys=on;

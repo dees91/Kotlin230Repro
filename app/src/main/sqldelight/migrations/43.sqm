@@ -1,0 +1,25 @@
+BEGIN TRANSACTION;
+    PRAGMA foreign_keys=off;
+
+    DROP VIEW IF EXISTS view23;
+
+    CREATE VIEW IF NOT EXISTS view23 AS
+        SELECT
+            P.id,
+            P.col28,
+            P.col87,
+            P.col83,
+            MC.col87 AS col231,
+            P.col65,
+            P.col158,
+            C.col87 AS col267,
+            P.col36 AS col276,
+            P.col46,
+            PS.col87 AS col216
+        FROM table12 P
+        LEFT JOIN table57 C ON P.col158=C.id
+        LEFT JOIN table36 MC ON C.col65=MC.id
+        LEFT JOIN table13 PS ON P.col46=PS.id;
+
+    PRAGMA foreign_keys=on;
+COMMIT;

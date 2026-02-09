@@ -1,0 +1,21 @@
+BEGIN TRANSACTION;
+
+    DROP VIEW IF EXISTS view5;
+
+    CREATE VIEW view5 AS
+        SELECT
+            S.id AS col24,
+            S.col160 AS col160,
+            S.col101 AS col101,
+            S.col103 AS col103,
+            S.col123 AS col123,
+            S.col150 AS col150,
+            S.col78 AS col78,
+            S.col30 AS col30,
+            (SELECT COALESCE(COUNT(I.id), 0) FROM table5 I WHERE I.col24=S.id AND I.col155 IN ('VAL121', 'VAL201', 'VAL122', 'VAL68', 'VAL1', 'VAL14', 'VAL17')) AS col194,
+            (SELECT TOTAL(EC.table23) FROM table24 EC WHERE EC.col24=S.id) AS col222
+        FROM view26 S
+        WHERE col7 = 1
+        ORDER BY S.col160 ASC, S.col103 ASC, col222 DESC;
+
+COMMIT;

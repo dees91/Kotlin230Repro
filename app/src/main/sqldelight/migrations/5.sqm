@@ -1,0 +1,21 @@
+DROP VIEW view4;
+
+CREATE VIEW view4 AS
+    SELECT
+        I.col28,
+        C.col87 AS col267,
+        P.col36 AS col276,
+        MAX(CASE WHEN I.col136="VAL283" THEN I.id ELSE NULL END)AS col242,
+        MAX(CASE WHEN I.col136="VAL283" THEN I.col124 ELSE 0 END) AS col243,
+        MAX(CASE WHEN I.col136="VAL281" THEN I.id ELSE NULL END) AS col196,
+        MAX(CASE WHEN I.col136="VAL281" THEN I.col124 ELSE 0 END) AS col197,
+        MAX(CASE WHEN I.col136="VAL284" THEN I.id ELSE NULL END)AS col259,
+        MAX(CASE WHEN I.col136="VAL284" THEN I.col124 ELSE 0 END) AS col260,
+        MAX(I.col91) AS col91,
+        I.col15 AS col15,
+        I.col136
+    FROM table6 I
+    LEFT JOIN table57 C ON I.col158=C.id
+    LEFT JOIN table12 P ON P.id = I.col21
+    GROUP BY I.col28, I.col15
+    ORDER BY I.col91 DESC, I.col28;

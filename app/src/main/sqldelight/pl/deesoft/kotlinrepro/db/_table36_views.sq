@@ -1,0 +1,7 @@
+CREATE VIEW IF NOT EXISTS view39 AS
+    SELECT
+        sg.id,
+        sg.col87 AS col267,
+        g.col87 AS col231
+    FROM table57 sg
+    LEFT JOIN table36 g ON sg.col65=g.id;

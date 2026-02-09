@@ -1,0 +1,153 @@
+query211:
+INSERT OR REPLACE INTO table33(
+    id,
+    col24,
+    col66
+) VALUES (
+    :col55,
+    :col24,
+    :col66
+);
+
+query210:
+INSERT OR REPLACE INTO table27(
+    id,
+    col24,
+    col101,
+    col176,
+    col6,
+    col154
+) VALUES (
+    :col55,
+    :col24,
+    :col101,
+    :col176,
+    :col6,
+    :col154
+);
+
+query207:
+INSERT OR REPLACE INTO table28(
+    col54,
+    col55,
+    col24,
+    col21,
+    col99,
+    col115,
+    col42
+) VALUES (
+    :col54,
+    :col55,
+    :col24,
+    :col21,
+    :col99,
+    :col115,
+    :col42
+);
+
+query229:
+DELETE FROM table28
+WHERE
+    col55 = :col55
+    AND col24 = :col24;
+
+query105:
+SELECT
+    col227.*,
+    col229.col66
+FROM table27 AS col227
+INNER JOIN table33 AS col229 ON col227.id = col229.id AND col227.col24 = col229.col24
+WHERE
+    col227.id = :id
+    AND col227.col24 = :col24;
+
+query95:
+SELECT DISTINCT
+    col228.col54,
+    col228.col99,
+    col228.col42,
+    c.col163 AS col43,
+    c.code AS col41
+FROM table28 AS col228
+JOIN table21 AS c ON col228.col42 = c.id
+WHERE
+    col228.col99 IS NOT NULL
+    AND col228.col55 = :col55
+    AND col228.col24 = :col24
+GROUP BY col228.col99, col228.col42
+ORDER BY CAST(col228.col99 AS REAL) ASC, col228.col42 ASC;
+
+query96:
+SELECT DISTINCT
+    col228.col54,
+    col228.col115,
+    col228.col42
+FROM table28 AS col228
+WHERE
+    col228.col115 IS NOT NULL
+    AND col228.col55 = :col55
+    AND col228.col24 = :col24
+GROUP BY col228.col115, col228.col42
+ORDER BY CAST(col228.col115 AS REAL) ASC, col228.col42 ASC;
+
+query94:
+SELECT DISTINCT
+    col228.col54,
+    col228.col99,
+    col228.col115,
+    col228.col42,
+    c.col163 AS col43,
+    c.code AS col41
+FROM table28 AS col228
+JOIN table21 AS c ON col228.col42 = c.id
+WHERE
+    col228.col99 IS NOT NULL
+    AND col228.col115 IS NOT NULL
+    AND col228.col55 = :col55
+    AND col228.col24 = :col24
+GROUP BY col228.col99, col228.col115, col228.col42
+ORDER BY CAST(col228.col115 AS REAL) ASC, CAST(col228.col99 AS REAL) ASC, col228.col42 ASC;
+
+query236:
+SELECT DISTINCT
+    b.id AS col21,
+    b.col28 AS col198,
+    b.col83 AS col201,
+    b.col36 AS col199,
+    b.col65 AS col200,
+    g.col103 AS col232,
+    col228.col99 AS col99,
+    col228.col115 AS col115,
+    col228.col42 AS col42,
+    c.code AS col41,
+    c.col163 AS col43
+FROM table12 b
+JOIN table28 col228 ON b.id = col228.col21
+JOIN table21 c ON col228.col42 = c.id
+JOIN table36 g ON b.col65 = g.id
+WHERE
+    b.col65 IN :col230
+    AND col228.col24 = :col24
+    AND col228.col55 = :col55
+    AND col228.col42 IN :col213
+    AND (
+        (col228.col99 IN :col244 AND :col210)
+        OR (col228.col115 IN :col250 AND :col211)
+        OR (col228.col99 IN :col204 AND col228.col115 IN :col205 AND :col209)
+        OR (:col234)
+    )
+ORDER BY col198 ASC;
+
+query93:
+SELECT DISTINCT
+    g.id AS col65,
+    g.col87 AS col231,
+    g.col103 AS col232
+FROM table28 col228
+JOIN table12 b ON col228.col21 = b.id
+JOIN table36 g ON b.col65 = g.id
+WHERE
+    col228.col55 = :col55
+    AND col228.col24 = :col24
+    AND g.col7 = 1
+ORDER BY g.col103 ASC;

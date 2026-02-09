@@ -1,0 +1,5 @@
+query90:
+SELECT * FROM view18 WHERE col143 = :col143 ORDER BY col94;
+
+query91:
+SELECT * FROM view19 WHERE col147 = :col147 ORDER BY col94;

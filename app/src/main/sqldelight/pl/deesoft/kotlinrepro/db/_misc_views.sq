@@ -1,0 +1,54 @@
+CREATE VIEW IF NOT EXISTS view1 AS
+    SELECT
+        ao.id,
+        ao.col106,
+        ao.col124,
+        ao.col27,
+        ao.col45,
+        ao.col38,
+        ao.col173,
+        ao.col39,
+        b.col36,
+        b.col28 AS col203,
+        br.col103 AS col208,
+        br.col101 AS col207,
+        b.col5
+    FROM table1 ao
+    JOIN table19 br ON ao.col24 = br.id
+    JOIN table12 b ON ao.col21 = b.id;
+
+CREATE VIEW IF NOT EXISTS view2 AS
+    SELECT
+        ao.id,
+        ao.col106,
+        ao.col124,
+        ao.col27,
+        ao.col45,
+        ao.col38,
+        ao.col173,
+        ao.col39,
+        ao.col31,
+        b.col36,
+        b.id AS col21,
+        b.col28 AS col203,
+        b.col87 AS col202,
+        b.col122 AS col239,
+        g.col87 AS col231,
+        sg.col87 AS col267,
+        ao.col24 AS col24,
+        br.col103 AS col208,
+        br.col101 AS col207,
+        bf.col87 AS col226,
+        bf.col69 AS col225,
+        b.col25,
+        be.col87 AS col216,
+        brev.col134,
+        bf.col1 AS col224
+    FROM table1 ao
+    JOIN table19 br ON ao.col24 = br.id
+    JOIN table12 b ON ao.col21 = b.id
+    LEFT JOIN table14 bf ON b.col64 = bf.id
+    LEFT JOIN table57 sg ON b.col158 = sg.id
+    LEFT JOIN table36 g ON sg.col65 = g.id
+    LEFT JOIN table13 be ON b.col46 = be.id
+    LEFT JOIN table17 brev ON b.id = brev.col21 AND brev.col7 = 1;

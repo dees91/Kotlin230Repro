@@ -1,0 +1,23 @@
+query263:
+UPDATE table36 SET
+    col87 = :col87,
+    col103 = :col103,
+    col7 = :col7
+WHERE id = :id;
+
+query200:
+INSERT INTO table36(id,col87,col103,col7) SELECT :id,:col87,:col103,:col7 WHERE (SELECT changes() = 0);
+
+query273:
+UPDATE table57 SET
+    col87 = :col87,
+    col103 = :col103,
+    col65 = :col65,
+    col7 = :col7,
+    col49 = :col49
+WHERE id = :id;
+
+query218:
+INSERT INTO table57(id,col87,col103,col65,col7, col49)
+    SELECT :id,:col87,:col103,:col65,:col7, :col49
+    WHERE (SELECT changes() = 0);

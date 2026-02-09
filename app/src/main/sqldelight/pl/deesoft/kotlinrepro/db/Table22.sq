@@ -1,0 +1,29 @@
+query176:
+SELECT * FROM table22 WHERE key = :key;
+
+query124:
+SELECT * FROM table22 ORDER BY col90 ASC LIMIT 1;
+
+query276:
+UPDATE table22 SET
+    col50=:col50,
+    col165=:col165,
+    col67=:col67,
+    col48=:col48
+WHERE key = :key;
+
+query258:
+UPDATE table22 SET
+    col67=0,
+    col48=:col48
+WHERE key = :key;
+
+query275:
+UPDATE table22 SET
+    col67=1,
+    col90=:col90
+WHERE key = :key;
+
+query220:
+INSERT OR REPLACE INTO table22(key, col50, col165, col67, col48, col90)
+    SELECT :key, :col50, :col165, :col67, :col48, :col90 WHERE (SELECT changes() = 0);

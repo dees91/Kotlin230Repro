@@ -1,0 +1,22 @@
+query270:
+UPDATE table54 SET
+    col162 = :col162,
+    col160 = :col160,
+    col78 = :col78,
+    col7 = :col7
+WHERE col24 = :col24 AND col150 = :col150 AND col123 = :col123;
+
+query215:
+INSERT INTO table54(col24,col150,col123,col162,col160,col78)
+    SELECT :col24,:col150,:col123,:col162,:col160,:col78 WHERE (SELECT changes() = 0);
+
+query225:
+UPDATE table54 SET
+    col7 = 0
+WHERE col24 NOT IN :col252;
+
+query161:
+SELECT * FROM table54;
+
+query160:
+SELECT col24 FROM table54;

@@ -1,0 +1,56 @@
+import kotlin.Boolean;
+
+BEGIN TRANSACTION;
+
+    PRAGMA foreign_keys=off;
+
+    DROP INDEX IF EXISTS idx24;
+
+    CREATE TABLE table16(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    col21 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col41 TEXT NOT NULL,
+    col43 TEXT NOT NULL,
+    col130 INTEGER AS Boolean NOT NULL,
+    value REAL NOT NULL,
+    col176 TEXT NOT NULL,
+    col177 TEXT,
+    CONSTRAINT cstr5
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr8
+        FOREIGN KEY (col24)
+        REFERENCES table19(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    UNIQUE (col21, col24, col41, value, col176)
+    );
+
+    CREATE INDEX idx24 ON table16(id);
+
+    INSERT INTO table16(id,col21,col24,col41,col43,col130,value,col176,col177)
+    SELECT id,col21,col24,col41,col43,col130,value,date,NULL
+    FROM table15;
+
+    DROP TABLE table15;
+
+    ALTER TABLE table16 RENAME TO table15;
+
+    DROP TABLE table45;
+    DROP TABLE table46;
+
+    CREATE TABLE table45(
+        id TEXT NOT NULL PRIMARY KEY,
+        col40 TEXT NOT NULL,
+        col97 TEXT NOT NULL,
+        col123 TEXT NOT NULL,
+        col20 TEXT NOT NULL DEFAULT "",
+        col142 INTEGER AS Boolean DEFAULT 0
+    );
+
+    PRAGMA foreign_keys=on;
+
+COMMIT;

@@ -1,0 +1,16 @@
+CREATE TRIGGER trigger5
+    AFTER UPDATE OF col155, col62, col26 ON table5
+BEGIN
+    SELECT CASE
+        WHEN
+            ((old.col155 = 'VAL14' OR old.col155 = 'VAL13') AND old.col62 IS NOT NULL)
+            AND (new.col155 = 'VAL1' AND new.col62 IS NULL)
+        THEN
+            RAISE(ABORT,'Cannot back up from locally-overriden finalization states')
+        WHEN
+            (old.col155 = 'VAL6' AND old.col26 IS NOT NULL)
+            AND (new.col155 = 'VAL1' AND new.col26 IS NULL)
+        THEN
+            RAISE(ABORT,'Cannot back up from locally-overriden finalization states')
+    END;
+END;

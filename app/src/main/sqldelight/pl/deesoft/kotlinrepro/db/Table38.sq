@@ -1,0 +1,36 @@
+query153:
+SELECT * FROM view37
+WHERE col150 = :col150
+AND (col30 IS NULL
+    OR col30 > (
+        SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+        FROM table43
+        )
+    )
+ ORDER BY col103 ASC, col78 DESC;
+
+query238:
+    SELECT *
+    FROM view37
+    WHERE
+        col150 = :col150
+        AND (
+            CAST(col103 AS TEXT) LIKE '%'||:query||'%' OR
+            col101 LIKE '%'||:query||'%'
+        )
+        AND (col30 IS NULL
+            OR col30 > (
+                SELECT date('now', '-' || COALESCE(col12, 90) || ' days')
+                FROM table43
+                )
+            )
+    ORDER BY col103 ASC, col78 DESC;
+
+query125:
+SELECT * FROM view24 WHERE id = ?;
+
+query127:
+SELECT * FROM view24 ORDER BY col44 DESC;
+
+query126:
+SELECT * FROM table41 WHERE col103 = :col103;

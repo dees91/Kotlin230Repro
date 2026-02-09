@@ -1,0 +1,18 @@
+query266:
+UPDATE table40 SET
+    col87 = :col87,
+    col47 = :col47,
+    col69 = :col69,
+    col33 = :col33,
+    col149 = :col149,
+    col7 = :col7
+WHERE id = :id;
+
+query205:
+INSERT INTO table40(id,col87,col47,col69,col33,col149,col7)
+    SELECT :id,:col87,:col47,:col69,:col33,:col149,:col7 WHERE (SELECT changes() = 0);
+
+query224:
+UPDATE table40 SET
+    col7 = 0
+WHERE id NOT IN :col252;

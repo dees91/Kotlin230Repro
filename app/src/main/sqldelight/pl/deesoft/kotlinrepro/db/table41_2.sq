@@ -1,0 +1,129 @@
+query287:
+INSERT INTO table41(id, col101, col171, col103)
+VALUES (:id, :col101, :col171, :col103)
+ON CONFLICT(id) DO UPDATE SET
+    col103 = excluded.col103,
+    col101 = excluded.col101,
+    col171 = excluded.col171;
+
+query288:
+INSERT INTO table43(
+    col123,
+    col23,
+    col35,
+    col180,
+    col161,
+    col181,
+    col179,
+    col17,
+    col13,
+    col16,
+    col144,
+    col12,
+    col105,
+    col82,
+    col79,
+    col81,
+    col74,
+    col80,
+    col77,
+    col73,
+    col109,
+    col75,
+    col76,
+    col156,
+    col157,
+    col60,
+    col57,
+    col58,
+    col56,
+    col59,
+    col110,
+    col111
+)
+VALUES (
+    :col123,
+    :col23,
+    :col35,
+    :col180,
+    :col161,
+    :col181,
+    :col179,
+    :col17,
+    :col13,
+    :col16,
+    :col144,
+    :col12,
+    :col105,
+    :col82,
+    :col79,
+    :col81,
+    :col74,
+    :col80,
+    :col77,
+    :col73,
+    :col109,
+    :col75,
+    :col76,
+    :col156,
+    :col157,
+    :col60,
+    :col57,
+    :col58,
+    :col56,
+    :col59,
+    :col110,
+    :col111
+)
+ON CONFLICT(col123) DO UPDATE SET
+    col23 = excluded.col23,
+    col35 = excluded.col35,
+    col180 = excluded.col180,
+    col161 = excluded.col161,
+    col181 = excluded.col181,
+    col179 = excluded.col179,
+    col17 = excluded.col17,
+    col13 = excluded.col13,
+    col16 = excluded.col16,
+    col144 = excluded.col144,
+    col12 = excluded.col12,
+    col105 = excluded.col105,
+    col82 = excluded.col82,
+    col79 = excluded.col79,
+    col81 = excluded.col81,
+    col74 = excluded.col74,
+    col80 = excluded.col80,
+    col77 = excluded.col77,
+    col73 = excluded.col73,
+    col109 = excluded.col109,
+    col75 = excluded.col75,
+    col76 = excluded.col76,
+    col156 = excluded.col156,
+    col157 = excluded.col157,
+    col60 = excluded.col60,
+    col57 = excluded.col57,
+    col58 = excluded.col58,
+    col56 = excluded.col56,
+    col59 = excluded.col59,
+    col110 = excluded.col110,
+    col111 = excluded.col111;
+
+query285:
+INSERT INTO table42(
+    col123,
+    col24,
+    col181,
+    col179,
+    col17
+)
+VALUES (
+    :col123,
+    :col24,
+    :col181,
+    :col179,
+    :col17
+)
+ON CONFLICT(col123, col24) DO UPDATE SET
+    col181 = excluded.col181,
+    col179 = excluded.col179,
+    col17 = excluded.col17;

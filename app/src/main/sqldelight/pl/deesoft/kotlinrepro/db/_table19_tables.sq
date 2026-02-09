@@ -1,0 +1,37 @@
+import java.time.ZonedDateTime;
+
+CREATE TABLE table19 (
+        id TEXT NOT NULL PRIMARY KEY,
+        col101 TEXT NOT NULL,
+        col88 TEXT NOT NULL,
+        col103 INTEGER NOT NULL,
+        col30 TEXT AS ZonedDateTime DEFAULT NULL,
+        col162 TEXT DEFAULT NULL,
+        col123 TEXT DEFAULT NULL,
+        col131 TEXT DEFAULT NULL,
+        col168 TEXT DEFAULT NULL,
+        col167 INTEGER NOT NULL,
+        CONSTRAINT cstr26
+            FOREIGN KEY (col167)
+            REFERENCES table60(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    );
+
+CREATE INDEX idx37 ON table19(id);
+
+CREATE TABLE table58 (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    col24 TEXT NOT NULL,
+    col162 TEXT DEFAULT NULL,
+    CONSTRAINT cstr7
+                    FOREIGN KEY (col24)
+                    REFERENCES table19(id)
+                    ON DELETE CASCADE
+                    ON UPDATE NO ACTION,
+    CONSTRAINT cstr24
+                    FOREIGN KEY (col162)
+                    REFERENCES table41(id)
+                    ON DELETE CASCADE
+                    ON UPDATE NO ACTION
+);

@@ -1,0 +1,13 @@
+query268:
+UPDATE table45 SET
+    col40 = :col40,
+    col97 = :col97,
+    col123 = :col123,
+    col20 = :col20,
+    col142 = :col142,
+    col138 = :col138
+WHERE id = :id;
+
+query214:
+INSERT INTO table45(id, col40, col97, col123, col20, col142, col138)
+    SELECT :id, :col40, :col97, :col123, :col20, :col142, :col138 WHERE (SELECT changes() = 0);

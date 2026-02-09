@@ -1,0 +1,7 @@
+CREATE TABLE table21(
+    id TEXT PRIMARY KEY NOT NULL,
+    col163 TEXT NOT NULL,
+    code TEXT NOT NULL
+);
+
+CREATE INDEX idx38 ON table21(id);

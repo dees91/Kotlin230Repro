@@ -1,0 +1,531 @@
+PRAGMA foreign_keys=off;
+BEGIN TRANSACTION;
+
+DROP VIEW IF EXISTS view37;
+DROP VIEW IF EXISTS view12;
+DROP VIEW IF EXISTS view14;
+DROP VIEW IF EXISTS view5;
+DROP VIEW IF EXISTS view26;
+DROP VIEW IF EXISTS view1;
+DROP VIEW IF EXISTS view2;
+DROP VIEW IF EXISTS view40;
+DROP VIEW IF EXISTS view29;
+DROP VIEW IF EXISTS view38;
+
+CREATE TABLE table60 (
+        id INTEGER NOT NULL PRIMARY KEY,
+        col69 TEXT NOT NULL,
+        col84 TEXT NOT NULL UNIQUE,
+        col85 TEXT NOT NULL UNIQUE
+    );
+CREATE INDEX idx105 ON table60(id);
+
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100000000240, 'VAL287', '- ', '-  ');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (15, 'Aruba', 'AW', 'VAL18');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (3, 'Afghanistan', 'AF', 'VAL19');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (9, 'Angola', 'AO', 'VAL20');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (5, 'Anguilla', 'AI', 'VAL21');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (6, 'Albania', 'AL', 'VAL22');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (1, 'Andorra', 'AD', 'AND');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (8, 'Netherlands Antilles', 'AN', 'VAL23');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (2, 'United Arab Emirates', 'AE', 'VAL24');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (11, 'Argentina', 'AR', 'VAL25');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (7, 'Armenia', 'AM', 'VAL26');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (12, 'American Samoa', 'AS', 'VAL27');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (10, 'Antarctica', 'AQ', 'VAL28');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (205, 'French Southern Territories', 'TF', 'VAL29');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (4, 'Antigua And Barbuda', 'AG', 'VAL30');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (14, 'Australia', 'AU', 'VAL33');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (13, 'Austria', 'AT', 'VAL34');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (16, 'Azerbaijan', 'AZ', 'VAL35');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (24, 'Burundi', 'BI', 'VAL36');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (20, 'Belgium', 'BE', 'VAL37');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (25, 'Benin', 'BJ', 'VAL38');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (21, 'Burkina Faso', 'BF', 'VAL39');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (19, 'Bangladesh', 'BD', 'VAL40');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (22, 'Bulgaria', 'BG', 'VAL41');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (23, 'Bahrain', 'BH', 'VAL42');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (30, 'Bahamas', 'BS', 'VAL43');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (17, 'Bosnia And Herzegowina', 'BA', 'VAL44');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (34, 'Belarus', 'BY', 'VAL45');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (35, 'Belize', 'BZ', 'VAL46');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (26, 'Bermuda', 'BM', 'VAL47');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (28, 'Bolivia', 'BO', 'VAL48');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (29, 'Brazil', 'BR', 'VAL49');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (18, 'Barbados', 'BB', 'VAL50');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (27, 'Brunei Darussalam', 'BN', 'VAL51');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (31, 'Bhutan', 'BT', 'VAL52');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (32, 'Bouvet Island', 'BV', 'VAL53');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (33, 'Botswana', 'BW', 'VAL54');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (39, 'Central African Republic', 'CF', 'VAL55');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (36, 'Canada', 'CA', 'VAL56');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (37, 'Cocos (Keeling) Islands', 'CC', 'VAL57');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (41, 'Switzerland', 'CH', 'VAL58');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (44, 'Chile', 'CL', 'VAL59');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (46, 'China', 'CN', 'VAL60');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (42, "Cote d'Ivoire", 'CI', 'VAL61');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (45, 'Cameroon', 'CM', 'VAL62');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (38, 'Congo, Democrat. Republic of', 'CD', 'VAL63');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (40, 'Congo', 'CG', 'VAL64');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (43, 'Cook Islands', 'CK', 'VAL65');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (47, 'Colombia', 'CO', 'VAL66');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (114, 'Comoros', 'KM', 'VAL67');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (50, 'Cape Verde', 'CV', 'VAL69');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (48, 'Costa Rica', 'CR', 'VAL70');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (49, 'Cuba', 'CU', 'VAL71');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (51, 'Christmas Island', 'CX', 'VAL72');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (119, 'Cayman Islands', 'KY', 'VAL73');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (52, 'Cyprus', 'CY', 'VAL74');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (53, 'Czech Republic', 'CZ', 'VAL75');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (54, 'Germany', 'DE', 'VAL76');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (55, 'Djibouti', 'DJ', 'VAL77');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (57, 'Dominica', 'DM', 'VAL78');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (56, 'Denmark', 'DK', 'VAL79');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (58, 'Dominican Republic', 'DO', 'VAL80');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (59, 'Algeria', 'DZ', 'VAL81');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (60, 'Ecuador', 'EC', 'VAL82');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (62, 'Egypt', 'EG', 'VAL83');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (64, 'Eritrea', 'ER', 'VAL84');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (63, 'Western Sahara', 'EH', 'VAL85');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (65, 'Spain', 'ES', 'VAL86');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (61, 'Estonia', 'EE', 'VAL87');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (66, 'Ethiopia', 'ET', 'VAL88');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (67, 'Finland', 'FI', 'VAL89');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (68, 'Fiji', 'FJ', 'VAL91');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (69, 'Falkland Islands (Malvinas)', 'FK', 'VAL92');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (72, 'France', 'FR', 'VAL93');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (71, 'Faroe Islands', 'FO', 'VAL94');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (70, 'Micronesia, Federated States Of', 'FM', 'VAL95');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (73, 'France, Metropolitan', 'FX', 'VAL96');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (74, 'Gabon', 'GA', 'VAL97');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (75, 'United Kingdom', 'GB', 'VAL98');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (77, 'Georgia', 'GE', 'VAL99');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (79, 'Ghana', 'GH', 'VAL100');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (80, 'Gibraltar', 'GI', 'VAL101');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (83, 'Guinea', 'GN', 'VAL102');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (84, 'Guadeloupe', 'GP', 'VAL103');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (82, 'Gambia', 'GM', 'VAL104');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (90, 'Guinea-Bissau', 'GW', 'VAL105');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (85, 'Equatorial Guinea', 'GQ', 'VAL106');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (86, 'Greece', 'GR', 'VAL107');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (76, 'Grenada', 'GD', 'VAL108');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (81, 'Greenland', 'GL', 'VAL109');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (88, 'Guatemala', 'GT', 'VAL110');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (78, 'French Guiana', 'GF', 'VAL111');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (89, 'Guam', 'GU', 'VAL112');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (91, 'Guyana', 'GY', 'VAL113');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (92, 'Hong Kong', 'HK', 'VAL114');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (93, 'Heard And Mc Donald Islands', 'HM', 'VAL115');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (94, 'Honduras', 'HN', 'VAL116');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (95, 'Croatia (local col101: Hrvatska)', 'HR', 'VAL117');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (96, 'Haiti', 'HT', 'VAL118');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (97, 'Hungary', 'HU', 'VAL119');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (98, 'Indonesia', 'id', 'VAL282');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (101, 'India', 'IN', 'VAL120');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (102, 'British Indian Ocean Territory', 'IO', 'VAL123');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (99, 'Ireland', 'IE', 'VAL124');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (104, 'Iran (Islamic Republic Of)', 'IR', 'VAL125');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (103, 'Iraq', 'IQ', 'VAL126');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (105, 'Iceland', 'IS', 'VAL127');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100, 'Israel', 'IL', 'VAL128');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (106, 'Italy', 'IT', 'VAL129');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (107, 'Jamaica', 'JM', 'VAL130');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (108, 'Jordan', 'JO', 'VAL131');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (109, 'Japan', 'JP', 'VAL132');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (120, 'Kazakhstan', 'KZ', 'VAL133');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (110, 'Kenya', 'KE', 'VAL134');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (111, 'Kyrgyzstan', 'KG', 'VAL135');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (112, 'Cambodia', 'KH', 'VAL136');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (113, 'Kiribati', 'KI', 'VAL137');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (115, 'Saint Kitts And Nevis', 'KN', 'VAL138');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (117, 'R. South-Korea', 'KR', 'VAL139');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (118, 'Kuwait', 'KW', 'VAL140');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (121, 'Lao Peoples Democratic Republic', 'LA', 'VAL141');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (122, 'Lebanon', 'LB', 'VAL142');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (126, 'Liberia', 'LR', 'VAL143');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (131, 'Libyan Arab Jamahiriya', 'LY', 'VAL144');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (123, 'Saint Lucia', 'LC', 'VAL145');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (124, 'Liechtenstein', 'LI', 'VAL146');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (125, 'Sri Lanka', 'LK', 'VAL147');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (127, 'Lesotho', 'LS', 'VAL148');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (128, 'Lithuania', 'LT', 'VAL149');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (129, 'Luxembourg', 'LU', 'VAL150');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (130, 'Latvia', 'LV', 'VAL151');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (141, 'Macau', 'MO', 'VAL152');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (132, 'Morocco', 'MA', 'VAL153');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (133, 'Monaco', 'MC', 'VAL154');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (134, 'Moldova, Republic Of', 'MD', 'VAL155');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (135, 'Madagascar', 'MG', 'VAL156');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (148, 'Maldives', 'MV', 'VAL157');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (150, 'Mexico', 'MX', 'VAL158');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (136, 'Marshall Islands', 'MH', 'VAL159');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (137, 'Macedonia, The Former Yugoslav Republic Of', 'MK', 'VAL160');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (138, 'Mali', 'ML', 'VAL161');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (146, 'Malta', 'MT', 'VAL162');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (139, 'Myanmar', 'MM', 'VAL163');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (140, 'Mongolia', 'MN', 'VAL165');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (142, 'Northern Mariana Islands', 'MP', 'VAL166');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (152, 'Mozambique', 'MZ', 'VAL167');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (144, 'Mauritania', 'MR', 'VAL168');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (145, 'Montserrat', 'MS', 'VAL169');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (143, 'Martinique', 'MQ', 'VAL170');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (147, 'Mauritius', 'MU', 'VAL171');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (149, 'Malawi', 'MW', 'VAL172');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (151, 'Malaysia', 'MY', 'VAL173');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (235, 'Mayotte', 'YT', 'VAL174');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (153, 'Namibia', 'NA', 'VAL175');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (154, 'New Caledonia', 'NC', 'VAL176');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (155, 'Niger', 'NE', 'VAL177');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (156, 'Norfolk Island', 'NF', 'VAL178');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (157, 'Nigeria', 'NG', 'VAL179');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (158, 'Nicaragua', 'NI', 'VAL180');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (163, 'Niue', 'NU', 'VAL181');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (159, 'Netherlands', 'NL', 'VAL182');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (160, 'Norway', 'NO', 'VAL183');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (161, 'Nepal', 'NP', 'VAL187');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (162, 'Nauru', 'NR', 'VAL188');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (164, 'New Zealand', 'NZ', 'VAL189');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (165, 'Oman', 'OM', 'VAL190');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (171, 'Pakistan', 'PK', 'VAL192');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (166, 'Panama', 'PA', 'VAL193');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (174, 'Pitcairn', 'PN', 'VAL195');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (167, 'Peru', 'PE', 'VAL196');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (170, 'Philippines', 'PH', 'VAL197');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (177, 'Palau', 'PW', 'VAL198');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (169, 'Papua New Guinea', 'PG', 'VAL199');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (172, 'Poland', 'PL', 'VAL200');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (175, 'Puerto Rico', 'PR', 'VAL202');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (176, 'Portugal', 'PT', 'VAL204');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (178, 'Paraguay', 'PY', 'VAL205');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100000000242, 'Palestinian Territory, occupied', 'PS', 'VAL206');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (168, 'French Polynesia', 'PF', 'VAL207');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (179, 'Qatar', 'QA', 'VAL208');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (180, 'Reunion', 'RE', 'VAL210');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (181, 'Romania', 'RO', 'VAL213');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (182, 'Russian Federation', 'RU', 'VAL214');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (183, 'Rwanda', 'RW', 'VAL215');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (184, 'Kingdom of Saudi Arabia', 'SA', 'VAL216');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (187, 'Sudan', 'SD', 'VAL217');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (196, 'Senegal', 'SN', 'VAL218');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (189, 'Singapore', 'SG', 'VAL219');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (87, 'South Georgia And The South Sandwich Islands', 'GS', 'VAL220');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (190, 'St. Helena', 'SH', 'VAL222');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (192, 'Svalbard And Jan Mayen Islands', 'SJ', 'VAL223');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (185, 'Solomon Islands', 'SB', 'VAL224');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (194, 'Sierra Leone', 'SL', 'VAL225');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (200, 'El Salvador', 'SV', 'VAL226');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (195, 'San Marino', 'SM', 'VAL227');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (197, 'Somalia', 'SO', 'VAL228');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (173, 'St. Pierre And Miquelon', 'PM', 'VAL229');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (199, 'Sao Tome And Principe', 'ST', 'VAL233');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (198, 'Suriname', 'SR', 'VAL237');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (193, 'Slovakia (Slovak Republic)', 'SK', 'VAL238');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (191, 'Slovenia', 'SI', 'VAL239');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (188, 'Sweden', 'SE', 'VAL240');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (202, 'Swaziland', 'SZ', 'VAL241');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (186, 'Seychelles', 'SC', 'VAL242');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (201, 'Syrian Arab Republic', 'SY', 'VAL243');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (203, 'Turks And Caicos Islands', 'TC', 'VAL244');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (204, 'Chad', 'TD', 'VAL245');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (206, 'Togo', 'TG', 'VAL246');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (207, 'Thailand', 'TH', 'VAL247');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (208, 'Tajikistan', 'TJ', 'VAL248');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (209, 'Tokelau', 'TK', 'VAL249');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (210, 'Turkmenistan', 'TM', 'VAL250');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (213, 'Timor-Leste', 'TL', 'VAL251');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (212, 'Tonga', 'TO', 'VAL252');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (215, 'Trinidad And Tobago', 'TT', 'VAL253');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (211, 'Tunisia', 'TN', 'VAL254');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (214, 'Turkey', 'TR', 'VAL255');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (216, 'Tuvalu', 'TV', 'VAL256');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (217, 'Taiwan', 'TW', 'VAL257');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (218, 'Tanzania, United Republic Of', 'TZ', 'VAL258');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (220, 'Uganda', 'UG', 'VAL259');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (219, 'Ukraine', 'UA', 'VAL260');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (221, 'United States Minor Outlying Islands', 'UM', 'VAL261');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (223, 'Uruguay', 'UY', 'VAL263');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (222, 'VAL264', 'US', 'VAL264');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (224, 'Uzbekistan', 'UZ', 'VAL265');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (225, 'Vatican City State (Holy See)', 'VA', 'VAL266');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (226, 'Saint Vincent And The Grenadines', 'VC', 'VAL267');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (227, 'Venezuela', 'VE', 'VAL268');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (228, 'Virgin Islands (British)', 'VG', 'VAL269');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (229, 'Virgin Islands (U.S.)', 'VI', 'VAL270');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (230, 'Vietnam', 'VN', 'VAL271');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (231, 'Vanuatu', 'VU', 'VAL272');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (232, 'Wallis And Futuna Islands', 'WF', 'VAL274');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (233, 'Samoa', 'WS', 'VAL275');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100000000241, 'Ceuta', 'XC', 'XC?');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (234, 'Yemen', 'YE', 'VAL276');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (236, 'Yugoslavia', 'YU', 'VAL277');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (237, 'South Africa', 'ZA', 'VAL278');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (238, 'Zambia', 'ZM', 'VAL279');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (239, 'Zimbabwe', 'ZW', 'VAL280');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100000000243, 'Republic of Serbia', 'RS', 'VAL230');
+INSERT INTO table60 (id, col69, col84, col85) VALUES (100000000245, 'Montenegro', 'ME', 'VAL164');
+
+CREATE TABLE table20 (
+    id TEXT NOT NULL PRIMARY KEY,
+    col101 TEXT NOT NULL,
+    col88 TEXT NOT NULL,
+    col103 INTEGER NOT NULL,
+    col30 TEXT DEFAULT NULL,
+    col162 TEXT DEFAULT NULL,
+    col123 TEXT DEFAULT NULL,
+    col131 TEXT DEFAULT NULL,
+    col168 TEXT DEFAULT NULL,
+    col167 INTEGER NOT NULL,
+    CONSTRAINT cstr26 FOREIGN KEY (col167)
+        REFERENCES table60(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+INSERT INTO table20 (
+    id,
+    col101,
+    col88,
+    col103,
+    col30,
+    col162,
+    col123,
+    col131,
+    col168,
+    col167
+)
+SELECT
+    id,
+    col101,
+    col88,
+    col103,
+    col30,
+    col162,
+    col123,
+    col131,
+    col168,
+    COALESCE(
+            (SELECT id FROM table60 WHERE table60.col85 = table19.table60),
+            100000000240
+        ) AS col167
+FROM table19;
+
+DROP INDEX IF EXISTS idx37;
+DROP TABLE table19;
+ALTER TABLE table20 RENAME TO table19;
+CREATE INDEX idx37 ON table19(id);
+
+CREATE VIEW IF NOT EXISTS view37 AS
+    SELECT
+        s.id,
+        s.col101,
+        s.col103,
+        s.col167,
+        s.col123,
+        s.col131,
+        es.col150,
+        es.col78,
+        s.col30
+    FROM table19 s
+    JOIN table54 es ON s.id=es.col24
+    WHERE col7 = 1;
+
+
+CREATE VIEW view12 AS
+    SELECT
+        I.id,
+        I.col101,
+        I.col103,
+        I.col26,
+        I.col62,
+        I.col152,
+        I.col155 AS col154,
+        T.col69 AS col171,
+        T.col87 AS col275,
+        S.col101 AS col206,
+	    C.col272,
+	    I.col148,
+        ST.col149,
+        ST.col93
+    FROM table5 I
+    INNER JOIN table10 T ON I.col172=T.id
+    INNER JOIN table19 S ON I.col24=S.id
+    INNER JOIN table9 ST ON I.col155=ST.id
+    LEFT JOIN view6 C ON I.id=C.col15;
+
+CREATE VIEW IF NOT EXISTS view14 AS
+    SELECT
+        I.id,
+        I.col101,
+        I.col103,
+        I.col152,
+        I.col155 AS col266,
+        col192.col87 AS col275,
+        col192.col69 AS col274,
+        B.col101 AS col207,
+        I.col153,
+        I.col26,
+        I.col62,
+        col190.col149,
+        col190.col125,
+        col190.col93
+    FROM table5 I
+    INNER JOIN table10 col192 ON I.col172=col192.id
+    INNER JOIN table9 col190 ON I.col155=col190.id
+    LEFT JOIN table19 B ON I.col24=B.id;
+
+CREATE VIEW view5 AS
+    SELECT
+        S.id AS col24,
+        S.col160 AS col160,
+        S.col162,
+        S.col269,
+        S.col101 AS col101,
+        S.col103 AS col103,
+        S.col123 AS col123,
+        S.col150 AS col150,
+        S.col78 AS col78,
+        S.col30 AS col30,
+            (SELECT COALESCE(COUNT(I.id), 0) FROM table5 I WHERE I.col24=S.id AND I.col155 IN ('VAL121', 'VAL201', 'VAL122', 'VAL68', 'VAL1', 'VAL14', 'VAL17')) AS col194,
+            (SELECT TOTAL(EC.table23) FROM table24 EC WHERE EC.col24=S.id) AS col222
+    FROM view26 S
+    WHERE col7 = 1
+    ORDER BY S.col160 ASC, S.col103 ASC, col222 DESC;
+
+CREATE VIEW IF NOT EXISTS view26 AS
+    SELECT
+       S.id,
+       S.col88,
+       S.col103,
+       S.col101,
+       S.col30,
+       ES.col7,
+       ES.col160,
+       S.col162,
+       col189.col162 AS col269,
+       ES.col150,
+       ES.col123,
+       ES.col78
+    FROM
+        table19 S
+    JOIN table54 ES ON S.id=ES.col24
+    LEFT JOIN table58 col189 ON col189.col24=S.id;
+
+CREATE VIEW IF NOT EXISTS view1 AS
+    SELECT
+        mo.id,
+        mo.col106,
+        mo.col124,
+        mo.col27,
+        mo.col45,
+        mo.col38,
+        mo.col173,
+        mo.col39,
+        p.col36,
+        p.col28 AS col203,
+        s.col103 AS col208,
+        s.col101 AS col207,
+        p.col5
+    FROM table1 mo
+    JOIN table19 s ON mo.col24 = s.id
+    JOIN table12 p ON mo.col21 = p.id;
+
+CREATE VIEW IF NOT EXISTS view2 AS
+    SELECT
+        mo.id,
+        mo.col106,
+        mo.col124,
+        mo.col27,
+        mo.col45,
+        mo.col38,
+        mo.col173,
+        mo.col39,
+        mo.col31,
+        p.col36,
+        p.id AS col21,
+        p.col28 AS col203,
+        p.col87 AS col202,
+        mc.col87 AS col231,
+        c.col87 AS col267,
+        mo.col24 AS col24,
+        s.col103 AS col208,
+        s.col101 AS col207,
+        u.col87 AS col226,
+        u.col69 AS col225,
+        p.col25,
+        ps.col87 AS col216
+    FROM table1 mo
+    JOIN table19 s ON mo.col24 = s.id
+    JOIN table12 p ON mo.col21 = p.id
+    LEFT JOIN table14 u ON p.col64 = u.id
+    LEFT JOIN table57 c ON p.col158 = c.id
+    LEFT JOIN table36 mc ON c.col65 = mc.id
+    LEFT JOIN table13 ps ON p.col46 = ps.id;
+
+CREATE VIEW IF NOT EXISTS view40 AS
+    SELECT
+        s.id,
+        s.col101,
+        s.col103,
+        es.col150,
+        es.col78,
+        s.col30,
+        es.col160
+    FROM table19 s
+    JOIN table54 es ON s.id=es.col24
+    WHERE col7 = 1;
+
+CREATE VIEW IF NOT EXISTS view29 AS
+    SELECT
+        W.id,
+        W.col124,
+        W.col31,
+        W.col37,
+        W.col98,
+        W.col132,
+        S.col101 AS col207,
+        S.col103 AS col208,
+        S.col78 AS col78,
+        R.col87 AS col247,
+        R.col47 AS col245,
+        R.col69 AS col246,
+        P.col28 AS col203,
+        MC.col87 AS col231,
+        P.col36 AS col36,
+        S.col150 AS col150
+    FROM table63 W
+    LEFT JOIN view40 S ON W.col24=S.id
+    LEFT JOIN table12 P ON P.id = W.col21
+    LEFT JOIN table36 MC ON P.col65=MC.id
+    LEFT JOIN table40 R ON W.col100=R.id;
+
+CREATE VIEW IF NOT EXISTS view38 AS
+    SELECT
+        IR.id AS col257,
+        IR.col15 AS id,
+        I.col101,
+        I.col103,
+        I.col26,
+        I.col62,
+        I.col152,
+        T.col69 AS col171,
+        S.col101 AS col206,
+        S.col103 AS col208,
+        IR.col124,
+        IR.col21,
+        P.col36,
+        P.col28 AS col203,
+        P.col65,
+        MC.col87 AS col231,
+        P.col158,
+        C.col87 AS col267
+    FROM table6 IR
+    INNER JOIN table5 I ON IR.col15 = I.id
+    INNER JOIN table10 T ON I.col172 = T.id
+    INNER JOIN table19 S ON I.col24 = S.id
+    LEFT JOIN table12 P ON P.id = IR.col21
+    LEFT JOIN table57 C ON P.col158 = C.id
+    LEFT JOIN table36 MC ON P.col65 = MC.id
+    WHERE T.col69 = 'VAL15';
+
+COMMIT;
+PRAGMA foreign_keys=on;

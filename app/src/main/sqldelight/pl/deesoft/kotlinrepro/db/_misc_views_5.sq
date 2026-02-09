@@ -1,0 +1,18 @@
+CREATE VIEW IF NOT EXISTS view26 AS
+    SELECT
+       B.id,
+       B.col88,
+       B.col103,
+       B.col101,
+       B.col30,
+       SB.col7,
+       SB.col160,
+       B.col162,
+       col188.col162 AS col270,
+       SB.col150,
+       SB.col123,
+       SB.col78
+    FROM
+        table19 B
+    JOIN table54 SB ON B.id=SB.col24
+    LEFT JOIN table58 col188 ON col188.col24=B.id;

@@ -1,0 +1,41 @@
+import pl.deesoft.kotlinrepro.db.Type1;
+
+DROP VIEW IF EXISTS view25;
+
+ALTER TABLE table49 ADD COLUMN col44 TEXT AS Type1 DEFAULT NULL;
+
+CREATE VIEW IF NOT EXISTS view25 AS
+      SELECT
+          D.id,
+          D.col126,
+          D.col178,
+          D.col147,
+          D.col113,
+          D.col170,
+          D.col29,
+          D.col2,
+          D.col132,
+          D.col44,
+          S.id AS col262,
+          S.col101 AS col263,
+          S.col103 AS col264,
+          S.col171 AS col265,
+          D.col141,
+          R.id AS col253,
+          R.col101 AS col254,
+          R.col103 AS col255,
+          R.col171 AS col256,
+          D.col129,
+          I.col101 AS col236,
+          I.col103 AS col237,
+          I.col171 AS col238,
+          D.col72,
+          D.col70,
+          D.col104,
+          D.col34,
+          D.col146
+      FROM
+          table49 D
+      JOIN table41 S ON S.id=D.col140
+      JOIN table41 R ON R.id=D.col128
+      LEFT JOIN table41 I ON I.id=D.col71;

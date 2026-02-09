@@ -1,0 +1,51 @@
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+CREATE TABLE table1(
+    id INTEGER PRIMARY KEY NOT NULL,
+    col106 TEXT NOT NULL,
+    col21 TEXT NOT NULL,
+    col24 TEXT NOT NULL,
+    col124 INTEGER NOT NULL,
+    col27 INTEGER AS Boolean NOT NULL DEFAULT 0,
+    col45 TEXT AS ZonedDateTime NOT NULL,
+    col38 TEXT AS ZonedDateTime NOT NULL,
+    col173 TEXT AS ZonedDateTime DEFAULT NULL,
+    col39 TEXT NOT NULL,
+    col31 TEXT DEFAULT NULL,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr7
+        FOREIGN KEY (col24)
+        REFERENCES table19(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE INDEX idx12 ON table1(id);
+
+CREATE TABLE table2(
+    col3 INTEGER PRIMARY KEY NOT NULL,
+    col102 INTEGER DEFAULT NULL
+);
+
+CREATE INDEX idx11 ON table2(col3);
+
+CREATE TABLE table4(
+    id INTEGER PRIMARY KEY NOT NULL,
+    col69 TEXT NOT NULL
+);
+
+CREATE TABLE table3(
+    id INTEGER PRIMARY KEY NOT NULL,
+    col4 INTEGER NOT NULL,
+    col69 TEXT NOT NULL,
+    col8 TEXT DEFAULT NULL
+);
+
+CREATE INDEX idx14 ON table3(id);
+CREATE INDEX idx15 ON table3(col69);
+CREATE INDEX idx13 ON table4(col69);

@@ -1,0 +1,15 @@
+import kotlin.Boolean;
+
+BEGIN TRANSACTION;
+
+    CREATE TABLE table55(
+        id TEXT NOT NULL,
+        col87 TEXT NOT NULL,
+        col89 TEXT NOT NULL,
+        col175 TEXT DEFAULT NULL,
+        col7 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+        col19 INTEGER NOT NULL,
+        col149 INTEGER DEFAULT NULL
+    );
+
+COMMIT;

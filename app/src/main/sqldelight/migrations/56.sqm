@@ -1,0 +1,132 @@
+import pl.deesoft.kotlinrepro.db.Type7;
+import pl.deesoft.kotlinrepro.db.Type11;
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+BEGIN TRANSACTION;
+
+    DELETE FROM table9 WHERE id IN ('VAL121', 'VAL201', 'VAL122', 'VAL68');
+
+    DROP TABLE IF EXISTS table15;
+
+    ALTER TABLE table43 ADD COLUMN col76 INTEGER AS Boolean DEFAULT 0 NOT NULL;
+
+    CREATE TABLE table27(
+        id TEXT NOT NULL,
+        col101 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col176 TEXT AS ZonedDateTime NOT NULL,
+        col154 TEXT AS Type7 NOT NULL,
+        PRIMARY KEY (id, col24)
+    );
+
+    CREATE INDEX idx73 ON table27(id);
+    CREATE INDEX idx72 ON table27(col24);
+
+    CREATE TABLE table34(
+        col55 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col102 INTEGER DEFAULT NULL,
+        PRIMARY KEY (col55, col24)
+    );
+
+    CREATE INDEX idx71 ON table34(col55);
+    CREATE INDEX idx70 ON table34(col24);
+
+    CREATE TABLE table21(
+        id TEXT PRIMARY KEY NOT NULL,
+        col163 TEXT NOT NULL,
+        code TEXT NOT NULL
+    );
+
+    CREATE INDEX idx38 ON table21(id);
+
+    CREATE TABLE table28(
+        col55 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col21 TEXT NOT NULL,
+        col119 TEXT AS Type11 NOT NULL,
+        col42 TEXT NOT NULL,
+        PRIMARY KEY (col55, col24, col21, col42)
+    );
+
+    CREATE INDEX idx60 ON table28(col55);
+    CREATE INDEX idx58 ON table28(col24);
+    CREATE INDEX idx64 ON table28(col119);
+    CREATE INDEX idx59 ON table28(col42);
+
+    CREATE TABLE table32(
+        col55 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col9 INTEGER NOT NULL,
+        col101 TEXT NOT NULL,
+        PRIMARY KEY (col55, col24, col9)
+    );
+
+    CREATE INDEX idx65 ON table32(col9);
+    CREATE INDEX idx67 ON table32(col55);
+    CREATE INDEX idx66 ON table32(col24);
+
+    CREATE TABLE table29(
+        col9 INTEGER NOT NULL,
+        col55 TEXT NOT NULL,
+        col24 TEXT NOT NULL,
+        col119 TEXT AS Type11 NOT NULL,
+        col42 TEXT NOT NULL,
+        col151 TEXT AS ZonedDateTime DEFAULT NULL,
+        col63 TEXT AS ZonedDateTime DEFAULT NULL,
+        PRIMARY KEY (col55, col24, col119, col42, col9)
+    );
+
+    CREATE INDEX idx52 ON table29(col9);
+    CREATE INDEX idx55 ON table29(col55);
+    CREATE INDEX idx53 ON table29(col24);
+    CREATE INDEX idx57 ON table29(col119);
+    CREATE INDEX idx54 ON table29(col42);
+
+    CREATE VIEW IF NOT EXISTS view22 AS
+    WITH localStatuses AS (
+        SELECT
+            col55,
+            col24,
+            CASE
+                WHEN COUNT(DISTINCT AreaStatus) = 1 AND SUM(CASE WHEN AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL203'
+                WHEN SUM(CASE WHEN AreaStatus = 'VAL231' OR AreaStatus = 'VAL203' THEN 1 ELSE 0 END) > 0 THEN 'VAL231'
+                ELSE 'VAL184'
+            END AS col241
+        FROM
+            (
+              SELECT
+                    pc.id AS col55,
+                    pc.col24,
+                    CASE
+                        WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NULL THEN 'VAL231'
+                        WHEN pcpa.col151 IS NOT NULL AND pcpa.col63 IS NOT NULL THEN 'VAL203'
+                        ELSE 'VAL184'
+                    END AS AreaStatus
+                FROM
+                    table27 pc
+                LEFT JOIN
+                    table29 pcpa ON pc.id = pcpa.col55 AND pc.col24 = pcpa.col24
+            ) AS col191
+        GROUP BY
+            col55, col24
+    )
+    SELECT
+        pc.id,
+        pc.col101,
+        pc.col24,
+        pc.col176,
+        pc.col154 AS col258,
+        ls.col241,
+        CASE
+            WHEN pc.col154 IN ('VAL262', 'VAL90') THEN pc.col154
+            ELSE ls.col241
+        END AS col212
+    FROM
+        table27 pc
+    INNER JOIN localStatuses ls ON pc.id = ls.col55 AND pc.col24 = ls.col24
+    ORDER BY
+        pc.col176 DESC, pc.id DESC;
+
+COMMIT;

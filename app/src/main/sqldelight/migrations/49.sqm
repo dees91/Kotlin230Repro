@@ -1,0 +1,13 @@
+BEGIN TRANSACTION;
+
+    DELETE FROM table6
+    WHERE
+         col15 IN (
+            SELECT I.id
+            FROM table5 I
+            INNER JOIN table10 T ON I.col172 = T.id
+            WHERE T.col69 = 'VAL15'
+        )
+        AND col108 = 1;
+
+COMMIT;

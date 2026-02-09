@@ -1,0 +1,51 @@
+import pl.deesoft.kotlinrepro.db.Type4;
+import java.time.ZonedDateTime;
+
+CREATE TABLE table6(
+    id TEXT NOT NULL PRIMARY KEY DEFAULT (uuid()),
+    col166 TEXT NOT NULL DEFAULT (uuid()),
+    col15 TEXT NOT NULL,
+    col21 TEXT NOT NULL,
+    col158 TEXT NOT NULL,
+    col65 TEXT NOT NULL,
+    col28 INTEGER NOT NULL,
+    col83 TEXT DEFAULT NULL,
+    col136 TEXT NOT NULL,
+    col137 TEXT NOT NULL DEFAULT "VAL286",
+    col124 INTEGER NOT NULL DEFAULT 1,
+    col164 TEXT DEFAULT NULL,
+    col108 INTEGER AS Type4 NOT NULL DEFAULT 0,
+    col91 TEXT AS ZonedDateTime NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%f', 'now')),
+    col68 TEXT DEFAULT NULL,
+    UNIQUE (col15, col166),
+    CONSTRAINT cstr2
+        FOREIGN KEY (col15)
+        REFERENCES table5(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr4
+        FOREIGN KEY (col21)
+        REFERENCES table12(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr22
+        FOREIGN KEY (col158)
+        REFERENCES table57(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION,
+    CONSTRAINT cstr11
+        FOREIGN KEY (col65)
+        REFERENCES table36(id)
+        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+);
+
+CREATE UNIQUE INDEX idx3 ON table6(id);
+CREATE UNIQUE INDEX idx9 ON table6(col15,col166);
+CREATE INDEX idx5 ON table6(col83);
+CREATE INDEX idx1 ON table6(col28);
+CREATE INDEX idx4 ON table6(col21,col158,col65);
+CREATE INDEX idx8 ON table6(col164);
+CREATE INDEX idx2 ON table6(col91);
+CREATE INDEX idx6 ON table6(col136);
+CREATE INDEX idx7 ON table6(col158);

@@ -1,0 +1,14 @@
+query274:
+UPDATE table58 SET
+    col162 = :col162
+WHERE col24 = :col24;
+
+query219:
+INSERT INTO table58(col24, col162)
+    SELECT :col24, :col162 WHERE (SELECT changes() = 0);
+
+query232:
+DELETE FROM table58 WHERE col24 = :id;
+
+query174:
+SELECT * FROM table58;

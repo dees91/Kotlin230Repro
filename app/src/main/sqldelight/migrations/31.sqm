@@ -1,0 +1,84 @@
+import pl.deesoft.kotlinrepro.db.Type1;
+import java.time.ZonedDateTime;
+
+BEGIN TRANSACTION;
+    PRAGMA foreign_keys=off;
+
+    CREATE TABLE table38(
+        id TEXT NOT NULL PRIMARY KEY,
+        col126 TEXT DEFAULT NULL,
+        col140 TEXT NOT NULL,
+        col128 TEXT NOT NULL,
+        col141 TEXT DEFAULT NULL,
+        col129 TEXT DEFAULT NULL,
+        col147 TEXT NOT NULL,
+        col2 TEXT AS Type1 DEFAULT NULL,
+        col132 TEXT AS Type1 DEFAULT NULL,
+        col70 TEXT AS ZonedDateTime DEFAULT NULL,
+        col96 TEXT DEFAULT NULL,
+        col44 TEXT AS Type1 NOT NULL,
+        col32 TEXT DEFAULT NULL,
+        CONSTRAINT cstr17
+            FOREIGN KEY (col140)
+            REFERENCES table41(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION,
+        CONSTRAINT cstr16
+            FOREIGN KEY (col128)
+            REFERENCES table41(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    );
+
+    CREATE INDEX idx84 ON table38(id);
+    CREATE INDEX idx87 ON table38(col140);
+    CREATE INDEX idx86 ON table38(col128);
+
+    CREATE VIEW IF NOT EXISTS view24 AS
+        SELECT
+            L.id,
+            L.col126,
+            L.col141,
+            L.col147,
+            L.col129,
+            L.col2,
+            L.col132,
+            L.col70,
+            L.col96,
+            L.col44,
+            L.col32,
+            S.id AS col262,
+            S.col101 AS col263,
+            S.col103 AS col264,
+            S.col171 AS col265,
+            R.id AS col253,
+            R.col101 AS col254,
+            R.col103 AS col255,
+            R.col171 AS col256
+        FROM
+            table38 L
+        JOIN table41 S ON S.id=L.col140
+        JOIN table41 R ON R.id=L.col128;
+
+    CREATE TABLE table39(
+        col95 TEXT NOT NULL,
+        col94 INTEGER NOT NULL,
+        col21 TEXT NOT NULL,
+        col124 INTEGER NOT NULL,
+        PRIMARY KEY (col95, col21),
+        CONSTRAINT cstr12
+            FOREIGN KEY (col95)
+            REFERENCES table38(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION,
+        CONSTRAINT cstr4
+            FOREIGN KEY (col21)
+            REFERENCES table12(id)
+            ON DELETE CASCADE
+            ON UPDATE NO ACTION
+    );
+
+    CREATE INDEX idx85 ON table39(col95);
+
+    PRAGMA foreign_keys=on;
+COMMIT;

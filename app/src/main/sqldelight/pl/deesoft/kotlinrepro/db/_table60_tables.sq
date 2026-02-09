@@ -1,0 +1,10 @@
+import java.time.ZonedDateTime;
+
+CREATE TABLE table60 (
+    id INTEGER NOT NULL PRIMARY KEY,
+    col69 TEXT NOT NULL,
+    col84 TEXT NOT NULL UNIQUE,
+    col85 TEXT NOT NULL UNIQUE
+);
+
+CREATE INDEX idx105 ON table60(id);

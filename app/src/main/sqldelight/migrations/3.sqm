@@ -1,0 +1,39 @@
+CREATE TRIGGER trigger3
+    AFTER DELETE ON table6
+BEGIN
+    INSERT INTO table37(col86,col121,col114)
+        VALUES (
+            'VAL4',
+            3,
+            json_object(
+                'id',old.id,
+                'col166',old.col166,
+                'col18',old.col15,
+                'col21',old.col21,
+                'col136',old.col136,
+                'VAL285',old.col136,
+                'col124',old.col124,
+                'col70',old.col91
+            )
+        );
+END;
+
+CREATE TRIGGER trigger4
+    AFTER UPDATE OF col124,col91 ON table6
+BEGIN
+    INSERT INTO table37(col86,col121,col114)
+        VALUES (
+            'VAL3',
+            2,
+            json_object(
+                'id',new.id,
+                'col166',new.col166,
+                'col18',new.col15,
+                'col21',new.col21,
+                'col136',new.col136,
+                'VAL285',new.col136,
+                'col124',new.col124,
+                'col70',new.col91
+            )
+        );
+END;

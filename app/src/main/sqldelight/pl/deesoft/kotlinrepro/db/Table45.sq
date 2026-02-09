@@ -1,0 +1,23 @@
+query226:
+UPDATE table45 SET col138 = 1 WHERE id = :id;
+
+query11:
+SELECT COUNT(DISTINCT col103)
+FROM view33
+WHERE col123 = :col123
+    AND col40 > (SELECT date('now', '-' || COALESCE(col105, 14) || ' days') FROM table43);
+
+query87:
+SELECT COUNT(*) FROM (
+    SELECT MAX(col40)
+    FROM view33
+    WHERE col123 = :col123
+        AND col40 > (SELECT date('now', '-' || COALESCE(col105, 14) || ' days') FROM table43)
+    GROUP BY col103 HAVING col138 = '0');
+
+query22:
+SELECT id, COALESCE(MAX(col40), date('now')) AS col248, col97, col123, col103, col20, col142, col138
+FROM view33
+WHERE col123 = :col123
+    AND col40 > (SELECT date('now', '-' || COALESCE(col105, 14) || ' days') FROM table43)
+GROUP BY col103 ORDER BY col248 DESC;

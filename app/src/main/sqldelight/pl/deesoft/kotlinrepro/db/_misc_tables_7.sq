@@ -1,0 +1,25 @@
+import pl.deesoft.kotlinrepro.db.Type12;
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+CREATE TABLE table59(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    key TEXT NOT NULL UNIQUE,
+    col50 TEXT AS ZonedDateTime NOT NULL,
+    col67 INTEGER AS Boolean NOT NULL,
+    col112 INTEGER NOT NULL,
+    col92 INTEGER NOT NULL,
+    col169 INTEGER NOT NULL,
+    col48 TEXT AS Type12,
+    col90 TEXT AS ZonedDateTime
+);
+
+CREATE TABLE table22(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    key TEXT NOT NULL UNIQUE,
+    col50 TEXT AS ZonedDateTime NOT NULL,
+    col67 INTEGER AS Boolean NOT NULL,
+    col48 TEXT AS Type12,
+    col165 TEXT AS ZonedDateTime,
+    col90 TEXT AS ZonedDateTime
+);

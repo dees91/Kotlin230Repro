@@ -1,0 +1,60 @@
+import java.time.ZonedDateTime;
+import kotlin.Boolean;
+
+BEGIN TRANSACTION;
+
+ PRAGMA foreign_keys=off;
+
+    DROP INDEX IF EXISTS idx90;
+
+    CREATE TABLE table44 (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            col123 TEXT NOT NULL,
+            col23 TEXT DEFAULT NULL,
+            col116 TEXT DEFAULT NULL,
+            col180 INTEGER DEFAULT NULL,
+            col161 INTEGER DEFAULT NULL,
+            col179 INTEGER DEFAULT NULL,
+            col17 INTEGER DEFAULT NULL,
+            col14 INTEGER DEFAULT NULL,
+            col16 INTEGER DEFAULT NULL,
+            col144 INTEGER DEFAULT NULL,
+            col12 INTEGER DEFAULT NULL,
+            col105 INTEGER DEFAULT NULL,
+            col82 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+            col79 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+            col81 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+            col74 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+            col80 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+            col77 INTEGER AS Boolean DEFAULT 0 NOT NULL,
+        CONSTRAINT cstr14
+            FOREIGN KEY (col123)
+            REFERENCES table41(id)
+            ON DELETE CASCADE
+    );
+
+    CREATE INDEX idx90 ON table44(id);
+
+    INSERT INTO table44(id, col123, col23, col116,
+    col180, col161, col179,
+    col17, col14, col16,
+    col144, col12,
+    col105, col82, col79, col81,
+    col74, col80, col77)
+        SELECT id, col123, col23, col116,
+                   col180, col161, col179,
+                   col17, col14, col16,
+                   col144, col12,
+                   col105, col82, col79,
+                   col81, col74, col80, col77
+        FROM table43;
+
+    DROP TABLE table43;
+
+    ALTER TABLE table44 RENAME TO table43;
+
+    ALTER TABLE table22 ADD COLUMN col165 TEXT AS ZonedDateTime;
+
+    PRAGMA foreign_keys=on;
+
+COMMIT;

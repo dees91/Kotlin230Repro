@@ -1,0 +1,18 @@
+BEGIN TRANSACTION;
+
+DROP VIEW IF EXISTS view40;
+
+CREATE VIEW IF NOT EXISTS view40 AS
+    SELECT
+        s.id,
+        s.col101,
+        s.col103,
+        es.col150,
+        es.col78,
+        s.col30,
+        es.col160
+    FROM table19 s
+    JOIN table54 es ON s.id=es.col24
+    WHERE col7 = 1;
+
+COMMIT;

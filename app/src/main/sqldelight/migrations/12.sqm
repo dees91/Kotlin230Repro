@@ -1,0 +1,28 @@
+DROP VIEW IF EXISTS view8;
+CREATE VIEW view8 AS
+SELECT
+        I.col21,
+        I.col28,
+        I.col158 AS col158,
+        C.col87 AS col267,
+        P.col36 AS col276,
+        I.col15 AS col15,
+        MAX(I.col91) AS col91
+    FROM table6 I
+    LEFT JOIN table57 C ON I.col158=C.id
+    LEFT JOIN table12 P ON P.id = I.col21
+    GROUP BY I.col28, I.col15
+    ORDER BY I.col91 DESC, I.col28;
+
+DROP VIEW IF EXISTS view9;
+CREATE VIEW view9 AS
+    SELECT col15, col21, col158, col124 FROM table6 WHERE col136="VAL283";
+
+DROP VIEW IF EXISTS view7;
+CREATE VIEW view7 AS
+    SELECT col15, col21, col158, col124 FROM table6 WHERE col136="VAL281";
+
+DROP VIEW IF EXISTS view10;
+CREATE VIEW view11 AS
+    SELECT col15, col21, col158, col166 FROM table6 WHERE col136="VAL284";
+

@@ -1,0 +1,98 @@
+query253:
+UPDATE table10 SET
+    col87= :col87,
+    col7= :col7,
+    col69 = :col69,
+    col139 = :col139
+WHERE id = :id;
+
+query185:
+INSERT INTO table10(id, col87, col7, col69, col139)
+    SELECT :id, :col87, :col7, :col69, :col139 WHERE (SELECT changes() = 0);
+
+
+query69:
+SELECT col155 FROM table5 WHERE id=:id;
+
+query18:
+DELETE FROM table5 WHERE id = :id;
+
+query251:
+UPDATE table5 SET
+    id = :id,
+    col101 =:col101,
+    col155 =:col155,
+    col172 =:col172,
+    col103 =:col103,
+    col24 =:col24,
+    col152 =:col152,
+    col153 =:col153,
+    col62 =:col62,
+    col26 =:col26,
+    col148 =:col148
+WHERE id = :id;
+
+query186:
+INSERT INTO table5(id, col101, col155, col172, col103, col24, col152, col153, col62, col26, col148)
+SELECT :id,:col101,:col155,:col172,:col103,:col24,:col152,:col153,:col62,:col26, :col148
+WHERE (SELECT changes() = 0);
+
+query3:
+DELETE FROM table8 WHERE col15 = :col15;
+
+query184:
+INSERT INTO table8(id, col15, col65, col158, col21)
+    VALUES (:id, :col15, :col65, :col158, :col21);
+
+query259:
+UPDATE table23 SET
+    id =:id,
+    col22 =:col22,
+    col51 =:col51,
+    col174 =:col174,
+    col24 =:col24
+WHERE id = :id;
+
+query198:
+INSERT INTO table23(
+    id,
+    col22,
+    col51,
+    col174,
+    col24
+)
+SELECT
+    :id,
+    :col22,
+    :col51,
+    :col174,
+    :col24
+WHERE (SELECT changes() = 0);
+
+query260:
+UPDATE table24 SET
+    id =:id,
+    col18 =:col18,
+    col22 =:col22,
+    col51 =:col51,
+    col52 =:col52,
+    col24 =:col24
+WHERE id = :id;
+
+query199:
+INSERT INTO table24(
+    id,
+    col18,
+    col22,
+    col51,
+    col52,
+    col24
+)
+SELECT
+    :id,
+    :col18,
+    :col22,
+    :col51,
+    :col52,
+    :col24
+WHERE (SELECT changes() = 0);

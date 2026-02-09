@@ -1,0 +1,28 @@
+CREATE VIEW IF NOT EXISTS view38 AS
+    SELECT
+        AE.id AS col219,
+        AE.col15 AS id,
+        A.col101,
+        A.col103,
+        A.col26,
+        A.col62,
+        A.col152,
+        T.col69 AS col171,
+        BR.col101 AS col206,
+        BR.col103 AS col208,
+        AE.col124,
+        AE.col21,
+        B.col36,
+        B.col28 AS col203,
+        B.col65,
+        G.col87 AS col231,
+        B.col158,
+        SG.col87 AS col267
+    FROM table6 AE
+    INNER JOIN table5 A ON AE.col15 = A.id
+    INNER JOIN table10 T ON A.col172 = T.id
+    INNER JOIN table19 BR ON A.col24 = BR.id
+    LEFT JOIN table12 B ON B.id = AE.col21
+    LEFT JOIN table57 SG ON B.col158 = SG.id
+    LEFT JOIN table36 G ON B.col65 = G.id
+    WHERE T.col69 = 'VAL15';
